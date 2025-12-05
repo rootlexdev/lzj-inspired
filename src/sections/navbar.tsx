@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 const Navbar = () => {
     const pathname = usePathname();
     return (
-        <div className="px-[5%] py-10 flex items-center justify-between">
+        <div className="px-[10%] lg:px-[5%] py-10 flex items-center justify-between">
             <div className="flex items-center gap-x-3">
                 <div>
                     <Image
@@ -38,7 +38,7 @@ const Navbar = () => {
             </div>
 
             <div>
-                <div className="flex items-center gap-x-4">
+                <div className="hidden lg:flex items-center gap-x-4">
                     <Link className="text-dark-navy font-medium" href={"/"}>
                         Login
                     </Link>
@@ -47,6 +47,12 @@ const Navbar = () => {
                     </Link>
 
                     <Button>Start for free</Button>
+                </div>
+
+                <div className="flex flex-col gap-y-1.5 lg:hidden">
+                    <span className="h-0.5 bg-primary-gold w-10 rounded-md"></span>
+                    <span className="h-0.5 bg-primary-gold w-10 rounded-md"></span>
+                    <span className="h-0.5 bg-primary-gold w-10 rounded-md"></span>
                 </div>
             </div>
         </div>

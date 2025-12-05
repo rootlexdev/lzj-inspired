@@ -28,7 +28,7 @@ const SolutionsSection = () => {
                     </div>
                 </div>
 
-                <div className="w-[65%]">
+                <div className="w-full lg:w-[65%]">
                     <div className="grid grid-cols-1 gap-10">
                         {SOLUTIONS.slice(0, 3).map((solution, i) => {
                             return <PerSolution solution={solution} key={i} />;

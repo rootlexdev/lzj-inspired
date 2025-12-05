@@ -10,14 +10,14 @@ const PerSolution = ({ solution }: Props) => {
     const { body, image, title } = solution;
 
     return (
-        <div className=" lg:flex items-center gap-10 mb-5">
-            <div className="flex-1">
+        <div className=" lg:flex items-center gap-10 mb-12 lg:mb-5">
+            <div className="flex-1 mb-6 lg:mb-0">
                 <h1 className="font-clash-display font-bold text-dark-navy mb-4 text-[28px]">
                     {title}
                 </h1>
                 <p className="text-body-text ">{body}</p>
             </div>
-            <div className="relative h-[400px] w-[400px] ">
+            <div className="relative h-[400px] w-full lg:w-[400px] ">
                 <Image
                     fill
                     src={`/assets/${image}`}

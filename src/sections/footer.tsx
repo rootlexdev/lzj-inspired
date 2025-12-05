@@ -16,7 +16,9 @@ const Footer = () => {
                 <div className="w-full lg:max-w-[50%] mb-10 lg:mb-0">
                     <h1 className="font-clash-display text-[36px] font-bold mb-10">
                         Ready to Transform Your Business Operations?
-                        <span>Try LZJ</span>
+                        <span className="ml-px inline-block text-primary-gold">
+                            Try LZJ
+                        </span>
                     </h1>
 
                     <p className="text-body-text text-lg">
@@ -29,8 +31,8 @@ const Footer = () => {
             </div>
 
             {/* MID SECTION OF FOOTER */}
-            <div className=" lg:flex items-center justify-between bg-soft-white p-[7.5%]">
-                <div className="max-w-[30%]">
+            <div className=" lg:flex items-center justify-between bg-soft-white lg:p-[7.5%] py-12 px-6">
+                <div className=" w-full lg:max-w-[30%] mb-10 lg:mb-0">
                     <div className="flex items-center gap-x-4 mb-4">
                         <Image
                             src={"/assets/logo.svg"}
@@ -54,14 +56,14 @@ const Footer = () => {
                         reliably, and grows with you.
                     </p>
                     {/* ICONS */}
-                    <div className="flex items-center gap-x-4 text-lg text-body-text mt-10">
+                    <div className="flex justify-center lg:justify-start items-center gap-x-4 text-lg text-body-text mt-10">
                         <BsFacebook />
                         <BsLinkedin />
                         <BsTwitterX />
                         <BsInstagram />
                     </div>
                 </div>
-                <div className="lg:flex justify-between gap-x-20">
+                <div className="flex flex-col lg:flex-row justify-between gap-x-20 gap-y-10">
                     <div className="flex flex-col text-body-text gap-y-4">
                         <h3 className="text-dark-navy font-semibold">
                             Company

@@ -20,7 +20,9 @@ const PerProblemSolve = ({ problem }: Props) => {
             <h1 className="font-clash-display text-xl font-semibold">
                 {problem.title}
             </h1>
-            <p className="text-body-text leading-6">{problem.body}</p>
+            <p className="text-body-text leading-6 text-sm lg:text-base">
+                {problem.body}
+            </p>
         </div>
     );
 };

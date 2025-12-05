@@ -12,13 +12,9 @@ const WhyChooseUs = () => {
                 width={100}
                 height={100}
                 alt="grey-logo"
+                className="w-[300px] h-[200px] lg:w-[500px] lg:h-[400px] right-6 top-12 lg:right-24 lg:top-12"
                 style={{
                     position: "absolute",
-                    width: 500,
-                    height: 400,
-
-                    right: 100,
-                    top: 50,
 
                     opacity: 0.7,
                     transform: "rotate(-15deg)",
@@ -27,12 +23,12 @@ const WhyChooseUs = () => {
             <SectionTitle title="why choose us" />
 
             <div className="lg:flex items-center mt-24 p-[5%] gap-12">
-                <div>
+                <div className="mb-10 lg:mb-0">
                     <h1 className="font-clash-display text-soft-white font-semibold text-[28px] mb-10">
                         Built for Reliability, Designed for Growth
                     </h1>
 
-                    <div className="grid grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         {VALUES.map((value, i) => {
                             return (
                                 <PerValue

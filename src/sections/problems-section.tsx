@@ -9,14 +9,14 @@ const ProblemsSection = () => {
             <SectionTitle title="problems we solve" />
 
             <div className=" px-[5%] py-20">
-                <div className=" lg:flex p-[5%] bg-soft-white rounded-xl gap-10">
-                    <div className="flex flex-col justify-between flex-1">
+                <div className=" lg:flex px-[5%] py-10 lg:p-[5%] bg-soft-white rounded-xl gap-10">
+                    <div className="flex flex-col justify-between flex-1 mb-10 lg:mb-0">
                         <div>
-                            <h3 className="font-clash-display text-2xl font-semibold mb-6">
+                            <h3 className="font-clash-display text-xl lg:text-2xl font-semibold mb-6">
                                 Africa’s Businesses Run on Manual Work.
                             </h3>
 
-                            <p className="text-body-text leading-6 mb-6">
+                            <p className="text-body-text leading-6 mb-6 text-sm lg:text-base">
                                 Across Africa, businesses still rely heavily on
                                 manual processes, scattered data, and outdated
                                 tools to run daily operations. These
@@ -26,7 +26,7 @@ const ProblemsSection = () => {
                                 decision-making.
                             </p>
 
-                            <p className="text-body-text leading-6 mb-6">
+                            <p className="text-body-text leading-6 mb-6 text-sm lg:text-base">
                                 Without centralized systems, teams struggle to
                                 track tasks, monitor performance, or maintain
                                 accountability. Information is often spread
@@ -37,7 +37,7 @@ const ProblemsSection = () => {
                             </p>
                         </div>
 
-                        <h1 className="font-bold font-clash-display text-primary-gold text-[44px]">
+                        <h1 className="font-bold font-clash-display text-primary-gold text-xl lg:text-[44px]">
                             We’re fixing that!
                         </h1>
                     </div>

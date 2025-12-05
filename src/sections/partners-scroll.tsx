@@ -5,11 +5,11 @@ import React from "react";
 
 const PartnersScroll = () => {
     return (
-        <div className="px-[5%]">
-            <div className="flex items-center gap-x-6">
+        <div className="lg:px-[5%]">
+            <div className="flex items-center gap-x-2 lg:gap-x-6">
                 <div className="flex-1 h-px bg-primary-gold"></div>
-                <div>
-                    <h1 className="text-body-text text-2xl text-center">
+                <div className="w-3/4 lg:w-full">
+                    <h1 className="text-body-text text-base lg:text-2xl text-center ">
                         Trusted By over 2,000 top restaurants all over Nigeria
                     </h1>
                 </div>
