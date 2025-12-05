@@ -9,7 +9,7 @@ const ProblemsSection = () => {
             <SectionTitle title="problems we solve" />
 
             <div className=" px-[5%] py-20">
-                <div className=" flex p-[5%] bg-soft-white rounded-xl gap-10">
+                <div className=" lg:flex p-[5%] bg-soft-white rounded-xl gap-10">
                     <div className="flex flex-col justify-between flex-1">
                         <div>
                             <h3 className="font-clash-display text-2xl font-semibold mb-6">
@@ -41,7 +41,7 @@ const ProblemsSection = () => {
                             We’re fixing that!
                         </h1>
                     </div>
-                    <div className="grid grid-cols-2 gap-10 w-[55%]">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:w-[55%]">
                         {PROBLEMS_WE_SOLVE.map((problem, i) => {
                             return (
                                 <PerProblemSolve problem={problem} key={i} />

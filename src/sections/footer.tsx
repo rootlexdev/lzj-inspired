@@ -12,8 +12,8 @@ import {
 const Footer = () => {
     return (
         <div>
-            <div className="p-[7.5%] flex justify-between items-center">
-                <div className="max-w-[50%]">
+            <div className="p-[7.5%] lg:flex justify-between items-center">
+                <div className="w-full lg:max-w-[50%] mb-10 lg:mb-0">
                     <h1 className="font-clash-display text-[36px] font-bold mb-10">
                         Ready to Transform Your Business Operations?
                         <span>Try LZJ</span>
@@ -29,7 +29,7 @@ const Footer = () => {
             </div>
 
             {/* MID SECTION OF FOOTER */}
-            <div className="flex items-center justify-between bg-soft-white p-[7.5%]">
+            <div className=" lg:flex items-center justify-between bg-soft-white p-[7.5%]">
                 <div className="max-w-[30%]">
                     <div className="flex items-center gap-x-4 mb-4">
                         <Image
@@ -53,7 +53,7 @@ const Footer = () => {
                         works with technology that feels premium, performs
                         reliably, and grows with you.
                     </p>
-
+                    {/* ICONS */}
                     <div className="flex items-center gap-x-4 text-lg text-body-text mt-10">
                         <BsFacebook />
                         <BsLinkedin />
@@ -61,7 +61,7 @@ const Footer = () => {
                         <BsInstagram />
                     </div>
                 </div>
-                <div className="flex justify-between gap-x-20">
+                <div className="lg:flex justify-between gap-x-20">
                     <div className="flex flex-col text-body-text gap-y-4">
                         <h3 className="text-dark-navy font-semibold">
                             Company

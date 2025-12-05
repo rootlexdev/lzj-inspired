@@ -5,10 +5,10 @@ import PerTestimonial from "./__components/per-testimonial";
 
 const Testimonials = () => {
     return (
-        <div className="py-20">
+        <div className="py-20 w-full overflow-hidden">
             <SectionTitle title="Testimonials" />
 
-            <h1 className="text-center font-clash-display text-[36px] w-[30%] mx-auto my-10 font-bold">
+            <h1 className="text-center font-clash-display text-[36px] w-full lg:w-[30%] mx-auto my-10 font-bold">
                 SEE WHAT PEOPLE ARE SAYING ABOUT US
             </h1>
 

@@ -22,7 +22,7 @@ const Navbar = () => {
                     />
                 </div>
 
-                <div className="flex items-center gap-x-1">
+                <div className="hidden lg:flex items-center gap-x-1">
                     {MenuLinks.map((link, i) => {
                         return (
                             <Navlink

@@ -10,7 +10,7 @@ const PerSolution = ({ solution }: Props) => {
     const { body, image, title } = solution;
 
     return (
-        <div className=" flex items-center gap-10">
+        <div className=" lg:flex items-center gap-10 mb-5">
             <div className="flex-1">
                 <h1 className="font-clash-display font-bold text-dark-navy mb-4 text-[28px]">
                     {title}

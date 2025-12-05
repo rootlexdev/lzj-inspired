@@ -26,7 +26,7 @@ const WhyChooseUs = () => {
             />
             <SectionTitle title="why choose us" />
 
-            <div className="flex items-center mt-24 p-[5%] gap-12">
+            <div className="lg:flex items-center mt-24 p-[5%] gap-12">
                 <div>
                     <h1 className="font-clash-display text-soft-white font-semibold text-[28px] mb-10">
                         Built for Reliability, Designed for Growth
@@ -44,7 +44,7 @@ const WhyChooseUs = () => {
                         })}
                     </div>
                 </div>
-                <div className="relative  w-[55%] p-10 rounded-xl bg-slate-grey">
+                <div className="relative  lg:w-[55%] p-10 rounded-xl bg-slate-grey">
                     <Image
                         src={"/assets/choose-us-dashboard.png"}
                         alt="Choose us dashboard"
