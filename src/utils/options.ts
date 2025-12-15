@@ -17,16 +17,16 @@ export const RELIGION_OPTIONS: SelectOptionType[] = [
         label: "Christianity",
     },
     {
-        label: "ISLAM",
-        value: "Islam",
+        label: "Islam",
+        value: "ISLAM",
     },
     {
-        label: "TRADITIONAL",
-        value: "Traditional",
+        value: "TRADITIONAL",
+        label: "Traditional",
     },
     {
-        label: "OTHER",
-        value: "Other",
+        value: "OTHER",
+        label: "Other",
     },
 ];
 

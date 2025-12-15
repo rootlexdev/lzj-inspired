@@ -45,7 +45,8 @@ import { BsFilePdfFill } from "react-icons/bs";
 
 const StaffRegistration = () => {
     const [uploading, setUploading] = useState(false);
-    const fileInputRef = useRef<HTMLInputElement>(null);
+    const passportInputRef = useRef<HTMLInputElement>(null);
+    const resumeInputRef = useRef<HTMLInputElement>(null);
     const [, setOpen] = useSuccessModal();
 
     const { mutate: submitDetails, isPending } = useCreateStaffSubmission();
@@ -97,17 +98,36 @@ const StaffRegistration = () => {
         uploadPart: StaffUploadPart
     ) => {
         const file = e.target.files?.[0];
-        if (file) {
-            const url = URL.createObjectURL(file);
-            setPreviews(prev => ({
-                ...prev,
-                [uploadPart]: url,
-            }));
-            setFiles(prev => ({
-                ...prev,
-                [uploadPart]: file,
-            }));
+        if (!file) return;
+
+        // ✅ TYPE VALIDATION (mobile-safe)
+        if (
+            !file.type.startsWith("image/") &&
+            file.type !== "application/pdf" &&
+            file.type !== "application/octet-stream"
+        ) {
+            toast.error("Only images or PDF files are allowed");
+            e.target.value = ""; // 🔴 required for mobile
+            return;
         }
+
+        // ✅ SIZE VALIDATION
+        if (file.size > 5 * 1024 * 1024) {
+            toast.error("File must be under 5MB");
+            e.target.value = ""; // 🔴 required for mobile
+            return;
+        }
+
+        const url = URL.createObjectURL(file);
+        setPreviews(prev => ({
+            ...prev,
+            [uploadPart]: url,
+        }));
+        setFiles(prev => ({
+            ...prev,
+            [uploadPart]: file,
+        }));
+        e.target.value = "";
     };
 
     const uploadAllFiles = async () => {
@@ -324,7 +344,7 @@ const StaffRegistration = () => {
                             className="px-5 py-2 rounded-full border-2 border-gray-500 flex items-center justify-center gap-x-2 transition-all hover:border-primary hover:text-primary cursor-pointer"
                             onClick={() => {
                                 currentUploadPart.current = uploadPart;
-                                fileInputRef.current?.click();
+                                passportInputRef.current?.click();
                             }}
                         >
                             {uploading ? (
@@ -347,14 +367,6 @@ const StaffRegistration = () => {
                     <p className="font-medium text-sm mb-1">{label}</p>
                     <div className="border border-[#666666] rounded-md flex flex-col items-center justify-center p-5 gap-4 border-dashed">
                         {previews[uploadPart] ? (
-                            // <div className="relative h-[100px] w-full rounded-md overflow-hidden">
-                            //     <Image
-                            //         src={previews[uploadPart]}
-                            //         alt={`${label} Preview`}
-                            //         fill
-                            //         className="object-contain rounded-md"
-                            //     />
-                            // </div>
                             <div className="bg-off-white p-2 flex items-center gap-x-3 w-full mb-3 rounded-md px-4">
                                 <div>
                                     {uploading ? (
@@ -374,7 +386,7 @@ const StaffRegistration = () => {
                             className="px-5 py-2 rounded-full border-2 border-gray-500 flex items-center justify-center gap-x-2 transition-all hover:border-primary hover:text-primary cursor-pointer"
                             onClick={() => {
                                 currentUploadPart.current = uploadPart;
-                                fileInputRef.current?.click();
+                                resumeInputRef.current?.click();
                             }}
                         >
                             {uploading ? (
@@ -688,16 +700,18 @@ const StaffRegistration = () => {
                         <div className="my-4">
                             <input
                                 type="file"
-                                ref={fileInputRef}
-                                onChange={e =>
-                                    currentUploadPart.current &&
-                                    handleFileChange(
-                                        e,
-                                        currentUploadPart.current
-                                    )
-                                }
+                                accept="image/*"
                                 className="hidden"
-                                accept="image/*,application/pdf"
+                                ref={passportInputRef}
+                                onChange={e => handleFileChange(e, "passport")}
+                            />
+
+                            <input
+                                type="file"
+                                accept="application/pdf,image/*"
+                                className="hidden"
+                                ref={resumeInputRef}
+                                onChange={e => handleFileChange(e, "resume")}
                             />
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                                 {renderUploadBox(
