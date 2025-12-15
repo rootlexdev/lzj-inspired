@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import React from "react";
 import Navlink from "./__components/nav-link";
 import { MenuLinks } from "@/utils/constants/menu";
 import { usePathname } from "next/navigation";
@@ -12,7 +11,7 @@ const Navbar = () => {
     return (
         <div className="px-[10%] lg:px-[5%] py-10 flex items-center justify-between">
             <div className="flex items-center gap-x-3">
-                <div>
+                <Link href="/">
                     <Image
                         src={"/assets/logo.svg"}
                         width={60}
@@ -20,7 +19,7 @@ const Navbar = () => {
                         className=""
                         alt="w-15 h-10"
                     />
-                </div>
+                </Link>
 
                 <div className="hidden lg:flex items-center gap-x-1">
                     {MenuLinks.map((link, i) => {

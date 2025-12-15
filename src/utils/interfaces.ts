@@ -22,3 +22,8 @@ export interface TestimonialsProps {
     review: string;
     logo: string;
 }
+
+export interface SelectOptionType {
+    value: string;
+    label: string;
+}

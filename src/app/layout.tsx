@@ -4,6 +4,10 @@ import "./globals.css";
 import localFont from "next/font/local";
 import Navbar from "@/sections/navbar";
 import Footer from "@/sections/footer";
+import { Toaster } from "sonner";
+import NextTopLoader from "nextjs-toploader";
+import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server";
+import { ConvexClientProvider } from "@/components/providers/convex-client-provider";
 
 const inter = Inter({
     variable: "--font-inter",
@@ -52,14 +56,20 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <body
-                className={`${inter.variable} ${clashDisplay.variable} antialiased`}
-            >
-                <Navbar />
-                {children}
-                <Footer />
-            </body>
-        </html>
+        <ConvexAuthNextjsServerProvider>
+            <html lang="en">
+                <body
+                    className={`${inter.variable} ${clashDisplay.variable} antialiased`}
+                >
+                    <ConvexClientProvider>
+                        <Navbar />
+                        {children}
+                        <Toaster />
+                        <Footer />
+                        <NextTopLoader color="#f7c74b" />
+                    </ConvexClientProvider>
+                </body>
+            </html>
+        </ConvexAuthNextjsServerProvider>
     );
 }
