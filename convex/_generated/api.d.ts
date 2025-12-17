@@ -8,6 +8,7 @@
  * @module
  */
 
+import type * as apiActions_cors from "../apiActions/cors.js";
 import type * as apiActions_staffActions from "../apiActions/staffActions.js";
 import type * as apiActions_surveySubmissionsActions from "../apiActions/surveySubmissionsActions.js";
 import type * as auth from "../auth.js";
@@ -28,6 +29,7 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  "apiActions/cors": typeof apiActions_cors;
   "apiActions/staffActions": typeof apiActions_staffActions;
   "apiActions/surveySubmissionsActions": typeof apiActions_surveySubmissionsActions;
   auth: typeof auth;

@@ -9,6 +9,12 @@ auth.addHttpRoutes(http);
 
 http.route({
     path: "/survey-submissions",
+    method: "OPTIONS",
+    handler: submitSurveyAction,
+});
+
+http.route({
+    path: "/survey-submissions",
     method: "POST",
     handler: submitSurveyAction,
 });
