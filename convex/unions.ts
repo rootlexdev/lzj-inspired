@@ -31,3 +31,38 @@ export const NextOfKinRelationshipUnion = v.union(
     v.literal("FRIEND"),
     v.literal("OTHER")
 );
+
+export const TrackingMethodUnion = v.union(
+    v.literal("Manual records"),
+    v.literal("Online"),
+    v.literal("None")
+);
+export const DecisionsWithoutDataUnion = v.union(
+    v.literal("Below 50%"),
+    v.literal("Above 70%")
+);
+export const YesNoUnion = v.union(v.literal("Yes"), v.literal("No"));
+export const YesNoMaybeUnion = v.union(
+    v.literal("Yes"),
+    v.literal("No"),
+    v.literal("Maybe")
+);
+
+export const EasyNoEasyUnion = v.union(
+    v.literal("Very Easy"),
+    v.literal("Not Easy")
+);
+
+export const RecordKeepingUnion = v.union(
+    v.literal("Manual"),
+    v.literal("Excel"),
+    v.literal("Notebook")
+);
+
+export const EasyHardUnion = v.union(v.literal("Easy"), v.literal("Hard"));
+
+export const ManualAutomatedUnion = v.union(
+    v.literal("10% Manual"),
+    v.literal("30%"),
+    v.literal("50%+")
+);

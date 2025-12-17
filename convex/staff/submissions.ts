@@ -1,7 +1,21 @@
 import { v } from "convex/values";
-import { mutation } from "../_generated/server";
+import { mutation, query } from "../_generated/server";
 import { GenderUnion, PositionUnion, ReligionUnion } from "../unions";
 import { CustomError } from "../errorUtils";
+
+export const getStaffList = query({
+    args: {
+        position: PositionUnion,
+    },
+    async handler(ctx, args) {
+        const staffList = await ctx.db
+            .query("staffSubmissions")
+            .withIndex("by_position", q => q.eq("position", args.position))
+            .collect();
+
+        return staffList;
+    },
+});
 
 export const createStaffSubmission = mutation({
     args: {
