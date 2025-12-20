@@ -290,6 +290,7 @@ const StaffRegistration = () => {
                     address: values.nextOfKinAddress,
                     fullName: values.nextOfKinFullName,
                     phoneNumber: values.nextOfKinPhoneNumber,
+                    relationship: values.nextOfKinRelationship,
                 },
                 personal: {
                     address: values.address,

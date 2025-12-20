@@ -4,6 +4,7 @@ import { api } from "../../../../convex/_generated/api";
 import {
     GenderTypeEnum,
     JobPositionTypeEnum,
+    NextOfKinRelationshipTypeEnum,
     ReligionTypeEnum,
 } from "@/utils/enums";
 
@@ -27,6 +28,7 @@ type RequestType = {
         fullName: string;
         address: string;
         phoneNumber: string;
+        relationship: NextOfKinRelationshipTypeEnum;
     };
     accountDetails: {
         accountName: string;

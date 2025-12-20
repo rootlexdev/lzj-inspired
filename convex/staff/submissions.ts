@@ -1,6 +1,11 @@
 import { v } from "convex/values";
 import { mutation, query } from "../_generated/server";
-import { GenderUnion, PositionUnion, ReligionUnion } from "../unions";
+import {
+    GenderUnion,
+    NextOfKinRelationshipUnion,
+    PositionUnion,
+    ReligionUnion,
+} from "../unions";
 import { CustomError } from "../errorUtils";
 
 export const getStaffList = query({
@@ -38,6 +43,7 @@ export const createStaffSubmission = mutation({
             fullName: v.string(),
             address: v.string(),
             phoneNumber: v.string(),
+            relationship: NextOfKinRelationshipUnion,
         }),
         accountDetails: v.object({
             accountName: v.string(),
@@ -101,6 +107,7 @@ export const createStaffSubmission = mutation({
                 fullName: nextOfKin.fullName,
                 phoneNumber: nextOfKin.phoneNumber,
                 staffSubmissionId: staffId,
+                relationship: nextOfKin.relationship,
             });
 
             await ctx.db.insert("staffAccountDetails", {

@@ -2,6 +2,8 @@ import { authTables } from "@convex-dev/auth/server";
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
 import {
+    AccountRoleUnion,
+    AccountStatusUnion,
     DecisionsWithoutDataUnion,
     EasyHardUnion,
     EasyNoEasyUnion,
@@ -12,6 +14,7 @@ import {
     RecordKeepingUnion,
     ReligionUnion,
     TrackingMethodUnion,
+    WorkspaceRoleUnion,
     YesNoMaybeUnion,
     YesNoUnion,
 } from "./unions";
@@ -19,11 +22,25 @@ import {
 export default defineSchema({
     ...authTables,
     // auth table
-    profile: defineTable({
-        body: v.string(),
-        user: v.id("users"),
-    }),
+    staff: defineTable({
+        firstName: v.string(),
+        lastName: v.string(),
+        email: v.string(),
+        dob: v.number(),
+        phoneNumber: v.string(),
+        officialEmail: v.string(),
+        gender: GenderUnion,
 
+        position: PositionUnion,
+
+        role: AccountRoleUnion,
+        avatar: v.optional(v.string()),
+        accountStatus: AccountStatusUnion,
+        userId: v.id("users"),
+        staffSubmissionId: v.id("staffSubmissions"),
+    })
+        .index("by_position", ["position"])
+        .index("by_user_id", ["userId"]),
     staffSubmissions: defineTable({
         firstName: v.string(),
         lastName: v.string(),
@@ -100,4 +117,15 @@ export default defineSchema({
     })
         .index("by_has_database", ["hasDatabase"])
         .index("by_staff", ["submittedBy"]),
+    workspaceInvites: defineTable({
+        email: v.string(),
+        role: WorkspaceRoleUnion,
+        joined: v.optional(v.number()),
+        resendCount: v.number(),
+        invitedBy: v.id("users"),
+    }).index("by_invited_by", ["invitedBy"]),
+    workspaceMembers: defineTable({
+        userId: v.id("users"),
+        role: WorkspaceRoleUnion,
+    }).index("by_role", ["role"]),
 });

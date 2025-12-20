@@ -1,13 +1,13 @@
 import { NavLinkProps } from "../interfaces";
 
 export const MenuLinks: NavLinkProps[] = [
+    // {
+    //     text: "Product",
+    //     hasDropdown: true,
+    //     url: "/product",
+    // },
     {
-        text: "Product",
-        hasDropdown: true,
-        url: "/product",
-    },
-    {
-        hasDropdown: true,
+        hasDropdown: false,
         text: "Solutions",
         url: "/solutions",
     },
@@ -16,9 +16,9 @@ export const MenuLinks: NavLinkProps[] = [
         text: "Customers",
         url: "/customers",
     },
-    {
-        hasDropdown: true,
-        text: "Resources",
-        url: "/resources",
-    },
+    // {
+    //     hasDropdown: false,
+    //     text: "Resources",
+    //     url: "/resources",
+    // },
 ];

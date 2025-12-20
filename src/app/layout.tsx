@@ -8,6 +8,7 @@ import { Toaster } from "sonner";
 import NextTopLoader from "nextjs-toploader";
 import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server";
 import { ConvexClientProvider } from "@/components/providers/convex-client-provider";
+import MobileNav from "@/sections/mobile-nav";
 
 const inter = Inter({
     variable: "--font-inter",
@@ -62,7 +63,12 @@ export default function RootLayout({
                     className={`${inter.variable} ${clashDisplay.variable} antialiased`}
                 >
                     <ConvexClientProvider>
-                        <Navbar />
+                        <div className="lg:hidden">
+                            <MobileNav />
+                        </div>
+                        <div className="hidden lg:block">
+                            <Navbar />
+                        </div>
                         {children}
                         <Toaster />
                         <Footer />

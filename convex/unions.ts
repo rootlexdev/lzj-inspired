@@ -66,3 +66,23 @@ export const ManualAutomatedUnion = v.union(
     v.literal("30%"),
     v.literal("50%+")
 );
+
+export const AccountStatusUnion = v.union(
+    v.literal("ACTIVE"),
+    v.literal("SUSPENDED"),
+    v.literal("BANNED"),
+    v.literal("DELETED")
+);
+
+export const AccountRoleUnion = v.union(
+    v.literal("SUPER_ADMIN"),
+    v.literal("ADMIN"),
+    v.literal("HR"),
+    v.literal("STAFF")
+);
+
+export const WorkspaceRoleUnion = v.union(
+    v.literal("ADMIN"),
+    v.literal("MANAGER"),
+    v.literal("STAFF")
+);
