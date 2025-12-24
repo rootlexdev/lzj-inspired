@@ -22,8 +22,6 @@ export const submitSurveyAction = httpAction(async (ctx, request) => {
         // ✅ Validate
         const parsed = SurveySchemaWithLogic.parse(data);
 
-        console.log("Parsed:", parsed);
-
         const response = await ctx.runMutation(
             internal.internalServices.surveyServices.submitSurveyService,
             {

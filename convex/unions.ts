@@ -35,6 +35,7 @@ export const NextOfKinRelationshipUnion = v.union(
 export const TrackingMethodUnion = v.union(
     v.literal("Manual records"),
     v.literal("Online"),
+    v.literal("Manual and Online"),
     v.literal("None")
 );
 export const DecisionsWithoutDataUnion = v.union(
@@ -85,4 +86,66 @@ export const WorkspaceRoleUnion = v.union(
     v.literal("ADMIN"),
     v.literal("MANAGER"),
     v.literal("STAFF")
+);
+
+export const ClientBusinessTypeUnion = v.union(
+    v.literal("FAST_FOOD"),
+    v.literal("DINE_IN"),
+    v.literal("CAFE"),
+    v.literal("BAKERY")
+);
+
+export const ClientBusinessBranchTypeUnion = v.union(
+    v.literal("SINGLE"),
+    v.literal("MULTIPLE")
+);
+
+export const ClientStatusUnion = v.union(
+    v.literal("DRAFT"),
+    v.literal("SUBMITTED"),
+    v.literal("APPROVED"),
+    v.literal("ONBOARDING"),
+    v.literal("LIVE"),
+    v.literal("INACTIVE")
+);
+export const ClientLocationServiceTypesUnion = v.union(
+    v.literal("DINE_IN"),
+    v.literal("TAKEAWAY"),
+    v.literal("DELIVERY")
+);
+export const ClientSalesOrderChannelsUnion = v.union(
+    v.literal("WALK_IN"),
+    v.literal("PHONE"),
+    v.literal("WHATSAPP"),
+    v.literal("SOCIAL"),
+    v.literal("WEBSITE")
+);
+
+export const PaymentMethodsUnion = v.union(
+    v.literal("CASH"),
+    v.literal("TRANSFER"),
+    v.literal("POS")
+);
+
+export const DeliveryMethodUnion = v.union(
+    v.literal("IN_HOUSE"),
+    v.literal("THIRD_PARTY"),
+    v.literal("NONE")
+);
+export const ClientFeaturePickUnion = v.union(
+    v.literal("NOW"),
+    v.literal("LATER"),
+    v.literal("NO")
+);
+
+export const ClientMenuFormatUnion = v.union(
+    v.literal("paper"),
+    v.literal("image"),
+    v.literal("pdf"),
+    v.literal("excel"),
+    v.literal("pos"),
+    v.literal("whatsapp"),
+    v.literal("google_docs"),
+    v.literal("website"),
+    v.literal("none")
 );

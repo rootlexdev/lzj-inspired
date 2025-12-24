@@ -1,15 +1,26 @@
+// Add hotels to business type
+
 import { authTables } from "@convex-dev/auth/server";
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
 import {
     AccountRoleUnion,
     AccountStatusUnion,
+    ClientBusinessBranchTypeUnion,
+    ClientBusinessTypeUnion,
+    ClientFeaturePickUnion,
+    ClientLocationServiceTypesUnion,
+    ClientMenuFormatUnion,
+    ClientSalesOrderChannelsUnion,
+    ClientStatusUnion,
     DecisionsWithoutDataUnion,
+    DeliveryMethodUnion,
     EasyHardUnion,
     EasyNoEasyUnion,
     GenderUnion,
     ManualAutomatedUnion,
     NextOfKinRelationshipUnion,
+    PaymentMethodsUnion,
     PositionUnion,
     RecordKeepingUnion,
     ReligionUnion,
@@ -128,4 +139,100 @@ export default defineSchema({
         userId: v.id("users"),
         role: WorkspaceRoleUnion,
     }).index("by_role", ["role"]),
+
+    clients: defineTable({
+        /* A. Business Identity */
+        business: v.object({
+            name: v.string(),
+            type: ClientBusinessTypeUnion,
+            branchType: ClientBusinessBranchTypeUnion,
+            yearEstablished: v.number(),
+            cacRegistered: v.boolean(),
+        }),
+        /* B. Primary Contact */
+        contact: v.object({
+            fullName: v.string(),
+            role: v.string(),
+            phone: v.string(),
+            email: v.string(),
+            isDecisionMaker: v.boolean(),
+        }),
+
+        /* C. Location & Operations */
+        location: v.object({
+            address: v.string(),
+            city: v.string(),
+            state: v.string(),
+            deliveryAreas: v.optional(v.array(v.string())),
+            serviceTypes: v.array(ClientLocationServiceTypesUnion),
+        }),
+
+        /* I. Consent */
+        consent: v.object({
+            dataProcessing: v.boolean(),
+            infoAccurate: v.boolean(),
+        }),
+
+        status: ClientStatusUnion,
+        updatedAt: v.optional(v.number()),
+    })
+        .index("by_email", ["contact.email"])
+        .index("by_phone", ["contact.phone"])
+        .index("by_business_name", ["business.name"]),
+    clientConfigs: defineTable({
+        clientId: v.id("clients"),
+
+        /* C. Brand & Digital Presence */
+        brand: v.object({
+            primaryColor: v.optional(v.string()),
+            secondaryColor: v.optional(v.string()),
+            logoUrl: v.optional(v.string()),
+            assetsUrls: v.optional(v.array(v.string())),
+            website: v.optional(v.string()),
+            domain: v.object({
+                hasDomain: v.boolean(),
+                preferredName: v.optional(v.string()),
+                tld: v.optional(v.string()),
+            }),
+        }),
+
+        /* E. Sales & Ordering */
+        sales: v.object({
+            menu: v.object({
+                format: ClientMenuFormatUnion,
+                sourceUrl: v.optional(v.string()),
+            }),
+            orderChannels: v.array(ClientSalesOrderChannelsUnion),
+        }),
+
+        /* F. Payments & Fulfillment */
+
+        /* G. Internal Ops (Future-facing) */
+        internalOps: v.object({
+            staffCount: v.number(),
+            needsStaffAccounts: v.boolean(),
+            currentPaymentMethods: v.array(PaymentMethodsUnion),
+            deliveryMethod: DeliveryMethodUnion,
+        }),
+
+        features: v.object({
+            orderTracking: ClientFeaturePickUnion,
+            inventory: ClientFeaturePickUnion,
+            reports: ClientFeaturePickUnion,
+            customerAnalytics: ClientFeaturePickUnion,
+            wantsOnlinePayments: v.boolean(),
+            onlineOrdering: v.boolean(),
+            tableOrdering: v.boolean(),
+            preOrders: v.boolean(),
+            scheduledDelivery: v.boolean(),
+        }),
+
+        /* H. Timeline */
+        timeline: v.object({
+            desiredGoLive: v.optional(v.number()),
+            fixedLaunchDate: v.optional(v.number()),
+        }),
+
+        updatedAt: v.optional(v.number()),
+    }).index("by_client", ["clientId"]),
 });

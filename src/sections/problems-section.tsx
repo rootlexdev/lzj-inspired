@@ -1,17 +1,75 @@
-import React from "react";
 import SectionTitle from "./__components/section-title";
 import { PROBLEMS_WE_SOLVE } from "@/utils/constants/problems";
 import PerProblemSolve from "./__components/per-problem-solve";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { SplitText } from "gsap/all";
+import _SplitText from "gsap/SplitText";
 
 const ProblemsSection = () => {
+    useGSAP(() => {
+        const problemsCards = gsap.utils.toArray(".problem-card");
+        const containerSplits: _SplitText[] = [];
+
+        const textContainer = document.querySelector(
+            ".problems-text-container"
+        );
+
+        textContainer?.querySelectorAll("h3, p").forEach(element => {
+            const split = SplitText.create(element, {
+                type: "lines",
+                mask: "lines",
+                linesClass: "line",
+            });
+
+            containerSplits.push(split);
+            gsap.set(split.lines, { y: "-100%" });
+        });
+
+        gsap.set(problemsCards, {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+            y: 100,
+        });
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".problems-section",
+                start: "top 10%",
+                toggleActions: "play none none reverse",
+                markers: true,
+            },
+        });
+
+        // Animate ALL lines at once with a small stagger for better speed
+        const allLines = containerSplits.flatMap(s => s.lines);
+
+        tl.to(problemsCards, {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%",
+            stagger: 0.2,
+            duration: 0.8,
+            y: 0,
+            ease: "power4.out",
+            immediateRender: false,
+        }).to(
+            allLines,
+            {
+                y: "0%",
+                duration: 0.8,
+                ease: "power3.out",
+                stagger: 0.05, // Small positive stagger is usually snappier than negative
+            },
+            "<0.3"
+        ); // Starts almost immediately after the menu starts opening
+    });
+
     return (
-        <div className="py-20">
+        <div className="py-20 problems-section">
             <SectionTitle title="problems we solve" />
 
             <div className=" px-[5%] py-20">
                 <div className=" lg:flex px-[5%] py-10 lg:p-[5%] bg-soft-white rounded-xl gap-10">
                     <div className="flex flex-col justify-between flex-1 mb-10 lg:mb-0">
-                        <div>
+                        <div className="problems-text-container">
                             <h3 className="font-clash-display text-xl lg:text-2xl font-semibold mb-6">
                                 Africa’s Businesses Run on Manual Work.
                             </h3>

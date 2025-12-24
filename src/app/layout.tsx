@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "@/lib/gsap";
 import localFont from "next/font/local";
 import Navbar from "@/sections/navbar";
 import Footer from "@/sections/footer";
@@ -9,6 +10,7 @@ import NextTopLoader from "nextjs-toploader";
 import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server";
 import { ConvexClientProvider } from "@/components/providers/convex-client-provider";
 import MobileNav from "@/sections/mobile-nav";
+import GSAPProvider from "@/components/providers/gsap-provider";
 
 const inter = Inter({
     variable: "--font-inter",
@@ -63,6 +65,7 @@ export default function RootLayout({
                     className={`${inter.variable} ${clashDisplay.variable} antialiased`}
                 >
                     <ConvexClientProvider>
+                        <GSAPProvider />
                         <div className="lg:hidden">
                             <MobileNav />
                         </div>

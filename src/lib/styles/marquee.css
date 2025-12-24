@@ -1,0 +1,11 @@
+.partners-marquee {
+    /* background: red; */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    height: 200px;
+}
+
+.partners-marquee-track {
+    will-change: transform;
+}

@@ -8,7 +8,7 @@ interface Props {
 
 const PerProblemSolve = ({ problem }: Props) => {
     return (
-        <div className="bg-white flex flex-col gap-y-4 p-4 rounded-xl">
+        <div className="bg-white flex flex-col gap-y-4 p-4 rounded-xl problem-card">
             <Image
                 src={`/assets/${problem.icon}`}
                 alt={problem.title}
