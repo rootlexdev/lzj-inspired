@@ -33,7 +33,7 @@ export const NextOfKinRelationshipUnion = v.union(
 );
 
 export const TrackingMethodUnion = v.union(
-    v.literal("Manual records"),
+    v.literal("Manual"),
     v.literal("Online"),
     v.literal("Manual and Online"),
     v.literal("None")

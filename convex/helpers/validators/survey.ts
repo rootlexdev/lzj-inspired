@@ -3,7 +3,12 @@ import { z } from "zod";
 export const YesNo = z.enum(["Yes", "No"]);
 export const YesNoMaybe = z.enum(["Yes", "No", "Maybe"]);
 
-export const TrackingMethod = z.enum(["Manual records", "Online", "None"]);
+export const TrackingMethod = z.enum([
+    "Manual",
+    "Online",
+    "Manual and Online",
+    "None",
+]);
 
 export const DecisionsWithoutData = z.enum(["Below 50%", "Above 70%"]);
 
