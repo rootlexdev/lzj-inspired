@@ -1,12 +1,46 @@
-import React from "react";
+import React, { useRef } from "react";
 import SectionTitle from "./__components/section-title";
 import { VALUES } from "@/utils/constants/choose-us";
 import PerValue from "./__components/per-value";
 import Image from "next/image";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const WhyChooseUs = () => {
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useGSAP(
+        () => {
+            const tl = gsap.timeline({
+                defaults: {
+                    duration: 1.2,
+                    ease: "power4.inOut",
+                },
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top 50%",
+                    toggleActions: "play reverse play reverse",
+                },
+                // onComplete
+            });
+
+            tl.to(
+                containerRef.current,
+                {
+                    backgroundColor: "#0b0d13",
+                    opacity: 1,
+                    rotate: 0,
+                },
+                "<"
+            );
+        },
+        {
+            scope: containerRef,
+        }
+    );
+
     return (
-        <div className="py-24 bg-dark-navy relative">
+        <div ref={containerRef} className="py-24 bg-soft-white relative">
             <Image
                 src={"/assets/grey-logo.svg"}
                 width={100}
@@ -44,8 +78,8 @@ const WhyChooseUs = () => {
                     <Image
                         src={"/assets/choose-us-dashboard.png"}
                         alt="Choose us dashboard"
-                        width={100}
-                        height={100}
+                        width={1600}
+                        height={900}
                         className="h-[300px] w-full object-contain"
                     />
                 </div>

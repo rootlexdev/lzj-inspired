@@ -10,10 +10,17 @@ const ProblemsSection = () => {
     useGSAP(() => {
         const problemsCards = gsap.utils.toArray(".problem-card");
         const containerSplits: _SplitText[] = [];
+        const fixingText = document.querySelector(".fixing-text");
 
         const textContainer = document.querySelector(
             ".problems-text-container"
         );
+
+        const splitWords = SplitText.create(fixingText, {
+            type: "words",
+        });
+
+        gsap.set(splitWords.words, { scale: "0.5", opacity: 0.05 });
 
         textContainer?.querySelectorAll("h3, p").forEach(element => {
             const split = SplitText.create(element, {
@@ -36,12 +43,13 @@ const ProblemsSection = () => {
                 trigger: ".problems-section",
                 start: "top 10%",
                 toggleActions: "play none none reverse",
-                markers: true,
             },
         });
 
         // Animate ALL lines at once with a small stagger for better speed
         const allLines = containerSplits.flatMap(s => s.lines);
+
+        const bigWords = splitWords.words;
 
         tl.to(problemsCards, {
             clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%",
@@ -50,16 +58,26 @@ const ProblemsSection = () => {
             y: 0,
             ease: "power4.out",
             immediateRender: false,
-        }).to(
-            allLines,
-            {
-                y: "0%",
-                duration: 0.8,
-                ease: "power3.out",
-                stagger: 0.05, // Small positive stagger is usually snappier than negative
-            },
-            "<0.3"
-        ); // Starts almost immediately after the menu starts opening
+        })
+            .to(
+                allLines,
+                {
+                    y: "0%",
+                    duration: 0.8,
+                    ease: "power3.out",
+                    stagger: 0.05, // Small positive stagger is usually snappier than negative
+                },
+                "<0.3"
+            )
+            .to(
+                bigWords,
+                {
+                    scale: 1,
+                    opacity: 1,
+                    stagger: 0.15,
+                },
+                "<"
+            ); // Starts almost immediately after the menu starts opening
     });
 
     return (
@@ -95,9 +113,11 @@ const ProblemsSection = () => {
                             </p>
                         </div>
 
-                        <h1 className="font-bold font-clash-display text-primary-gold text-xl lg:text-[44px]">
-                            We’re fixing that!
-                        </h1>
+                        <div className="overflow-hidden">
+                            <h1 className="font-bold font-clash-display text-primary-gold text-xl lg:text-[44px] fixing-text">
+                                We’re fixing that!
+                            </h1>
+                        </div>
                     </div>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:w-[55%]">
                         {PROBLEMS_WE_SOLVE.map((problem, i) => {

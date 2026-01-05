@@ -67,6 +67,7 @@ export default defineSchema({
         passportUrl: v.string(),
         resumeUrl: v.string(),
         position: PositionUnion,
+        workMail: v.optional(v.string()),
     }).index("by_position", ["position"]),
     staffNextOfKinDetails: defineTable({
         staffSubmissionId: v.id("staffSubmissions"),

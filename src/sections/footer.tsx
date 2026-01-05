@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import {
     BsFacebook,
     BsInstagram,
@@ -43,7 +42,7 @@ const Footer = () => {
                         />
 
                         <h1 className="font-clash-display text-4xl font-bold">
-                            LZJ_ESOL’N
+                            LZJ_ESOLEEN
                         </h1>
                     </div>
 
@@ -68,34 +67,27 @@ const Footer = () => {
                         <h3 className="text-dark-navy font-semibold">
                             Company
                         </h3>
-                        <Link href={"/"}>About Us</Link>
-                        <Link href={"/"}>Careers</Link>
-                        <Link href={"/"}>Blog</Link>
-                        <Link href={"/"}>Research</Link>
+                        <Link href={"/about"}>About Us</Link>
+                        <Link href={"/careers"}>Careers</Link>
+                        <Link href={"/blog"}>Blog</Link>
+                        <Link href={"/faqs"}>FAQs</Link>
                     </div>
                     <div className="flex flex-col text-body-text gap-y-4">
                         <h3 className="text-dark-navy font-semibold">
                             Solutions
                         </h3>
-                        <Link href={"/"}>Business</Link>
-                        <Link href={"/"}>Enterprise</Link>
-                        <Link href={"/"}>Supply Chain</Link>
-                        <Link href={"/"}>Custom Solutions</Link>
-                        <Link href={"/"}>All Solutions</Link>
-                    </div>
-                    <div className="flex flex-col text-body-text gap-y-4">
-                        <h3 className="text-dark-navy font-semibold">
-                            Solutions
-                        </h3>
-                        <Link href={"/"}>Business</Link>
-                        <Link href={"/"}>Enterprise</Link>
-                        <Link href={"/"}>Supply Chain</Link>
+                        <Link href={"/"}>Dashboard & Analytics</Link>
+                        <Link href={"/"}>Worklow & Automation</Link>
+                        <Link href={"/"}>Portals</Link>
+                        <Link href={"/"}>Inventory Systems</Link>
                         <Link href={"/"}>All Solutions</Link>
                     </div>
                 </div>
             </div>
             <div className="bg-soft-white p-10 flex justify-center items-center text-slate-grey border-t border-light-grey">
-                <p>© LZJ_ESOL’N 2025. All rights reserved</p>
+                <p>
+                    © LZJESOLEEN {new Date().getFullYear()}. All rights reserved
+                </p>
             </div>
         </div>
     );

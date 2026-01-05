@@ -127,6 +127,11 @@ const MobileNav = () => {
             link.addEventListener("click", closeMenu);
         });
     });
+
+    const handleRedirect = () => {
+        window.open(`https://lzj-client-data-form.vercel.app/`, "_blank");
+    };
+
     return (
         <div>
             <div
@@ -173,7 +178,10 @@ const MobileNav = () => {
                         >
                             Contact Sales
                         </Link>
-                        <Button className="w-full p-4 font-clash-display text-xl">
+                        <Button
+                            onClick={() => handleRedirect()}
+                            className="w-full p-4 font-clash-display text-xl"
+                        >
                             Start for free
                         </Button>
                     </div>

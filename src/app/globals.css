@@ -99,3 +99,11 @@
         @apply bg-background text-foreground;
     }
 }
+
+.perValueTitle {
+    overflow: hidden;
+}
+
+.perValue {
+    overflow: hidden;
+}

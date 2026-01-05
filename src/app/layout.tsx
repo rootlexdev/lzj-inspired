@@ -3,14 +3,10 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import "@/lib/gsap";
 import localFont from "next/font/local";
-import Navbar from "@/sections/navbar";
-import Footer from "@/sections/footer";
 import { Toaster } from "sonner";
 import NextTopLoader from "nextjs-toploader";
 import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server";
 import { ConvexClientProvider } from "@/components/providers/convex-client-provider";
-import MobileNav from "@/sections/mobile-nav";
-import GSAPProvider from "@/components/providers/gsap-provider";
 
 const inter = Inter({
     variable: "--font-inter",
@@ -49,7 +45,7 @@ const clashDisplay = localFont({
 });
 
 export const metadata: Metadata = {
-    title: "LZJ_ESOL’N",
+    title: "LZJ ESOLEEN",
     description: "Made for growing businesses",
 };
 
@@ -65,16 +61,8 @@ export default function RootLayout({
                     className={`${inter.variable} ${clashDisplay.variable} antialiased`}
                 >
                     <ConvexClientProvider>
-                        <GSAPProvider />
-                        <div className="lg:hidden">
-                            <MobileNav />
-                        </div>
-                        <div className="hidden lg:block">
-                            <Navbar />
-                        </div>
                         {children}
                         <Toaster />
-                        <Footer />
                         <NextTopLoader color="#f7c74b" />
                     </ConvexClientProvider>
                 </body>
