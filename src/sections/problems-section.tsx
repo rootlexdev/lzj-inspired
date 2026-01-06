@@ -8,7 +8,6 @@ import _SplitText from "gsap/SplitText";
 
 const ProblemsSection = () => {
     useGSAP(() => {
-        const problemsCards = gsap.utils.toArray(".problem-card");
         const containerSplits: _SplitText[] = [];
         const fixingText = document.querySelector(".fixing-text");
 
@@ -33,16 +32,11 @@ const ProblemsSection = () => {
             gsap.set(split.lines, { y: "-100%" });
         });
 
-        gsap.set(problemsCards, {
-            clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-            y: 100,
-        });
-
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: ".problems-section",
-                start: "top 10%",
-                toggleActions: "play none none reverse",
+                start: "top 80%",
+                end: "top 40%",
             },
         });
 
@@ -51,33 +45,24 @@ const ProblemsSection = () => {
 
         const bigWords = splitWords.words;
 
-        tl.to(problemsCards, {
-            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%",
-            stagger: 0.2,
-            duration: 0.8,
-            y: 0,
-            ease: "power4.out",
-            immediateRender: false,
-        })
-            .to(
-                allLines,
-                {
-                    y: "0%",
-                    duration: 0.8,
-                    ease: "power3.out",
-                    stagger: 0.05, // Small positive stagger is usually snappier than negative
-                },
-                "<0.3"
-            )
-            .to(
-                bigWords,
-                {
-                    scale: 1,
-                    opacity: 1,
-                    stagger: 0.15,
-                },
-                "<"
-            ); // Starts almost immediately after the menu starts opening
+        tl.to(
+            allLines,
+            {
+                y: "0%",
+                duration: 0.8,
+                ease: "power3.out",
+                stagger: 0.05, // Small positive stagger is usually snappier than negative
+            },
+            "<0.3"
+        ).to(
+            bigWords,
+            {
+                scale: 1,
+                opacity: 1,
+                stagger: 0.15,
+            },
+            "<"
+        ); // Starts almost immediately after the menu starts opening
     });
 
     return (

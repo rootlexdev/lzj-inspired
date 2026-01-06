@@ -10,8 +10,10 @@ export default function NavLoaderTrigger() {
     const { setLoaded } = useLoaderStore();
 
     useEffect(() => {
+        console.log("Pathname:", pathname);
         if (pathname === "/") return;
 
+        console.log("Loaded");
         const timer = setTimeout(() => setLoaded(), 1000);
         return () => clearTimeout(timer);
     }, [pathname, setLoaded]);

@@ -82,7 +82,10 @@ const SolutionsSection2 = () => {
                 ref={containerRef}
             >
                 {/* LEFT SIDE: Sticky Content */}
-                <div className="flex-1 mb-10 lg:mb-0" ref={leftRef}>
+                <div
+                    className="hidden lg:flex flex-1 mb-10 lg:mb-0"
+                    ref={leftRef}
+                >
                     <div className="flex flex-col gap-y-6">
                         <h1
                             ref={headingRef}

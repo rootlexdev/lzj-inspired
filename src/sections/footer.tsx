@@ -85,7 +85,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="bg-soft-white p-10 flex justify-center items-center text-slate-grey border-t border-light-grey">
-                <p>
+                <p className="text-center">
                     © LZJESOLEEN {new Date().getFullYear()}. All rights reserved
                 </p>
             </div>
