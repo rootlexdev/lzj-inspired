@@ -1,8 +1,13 @@
 "use client";
 import Image from "next/image";
 import SignInCard from "./signin-card";
+import { useState } from "react";
+import SignupCard from "./signup-card";
+
+export type AuthModeType = "signIn" | "signUp";
 
 const AuthPage = () => {
+    const [authMode, setAuthMode] = useState<AuthModeType>("signIn");
     return (
         <div className="h-screen flex items-center justify-center">
             <div className="md:h-auto md:w-[420px] py-10">
@@ -15,7 +20,11 @@ const AuthPage = () => {
                         className=" w-24 h-24"
                     />
                 </div>
-                <SignInCard />
+                {authMode === "signIn" ? (
+                    <SignInCard onSwitch={() => setAuthMode("signUp")} />
+                ) : (
+                    <SignupCard onSwitch={() => setAuthMode("signIn")} />
+                )}
             </div>
         </div>
     );

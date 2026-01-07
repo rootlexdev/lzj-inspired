@@ -5,7 +5,6 @@ import "@/lib/gsap";
 import localFont from "next/font/local";
 import { Toaster } from "sonner";
 import NextTopLoader from "nextjs-toploader";
-import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server";
 import { ConvexClientProvider } from "@/components/providers/convex-client-provider";
 
 const inter = Inter({
@@ -55,18 +54,16 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <ConvexAuthNextjsServerProvider>
-            <html lang="en">
-                <body
-                    className={`${inter.variable} ${clashDisplay.variable} antialiased`}
-                >
-                    <ConvexClientProvider>
-                        {children}
-                        <Toaster />
-                        <NextTopLoader color="#f7c74b" />
-                    </ConvexClientProvider>
-                </body>
-            </html>
-        </ConvexAuthNextjsServerProvider>
+        <html lang="en">
+            <body
+                className={`${inter.variable} ${clashDisplay.variable} antialiased`}
+            >
+                <ConvexClientProvider>
+                    {children}
+                    <Toaster />
+                    <NextTopLoader color="#f7c74b" />
+                </ConvexClientProvider>
+            </body>
+        </html>
     );
 }

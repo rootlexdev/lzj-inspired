@@ -1,12 +1,12 @@
 import { httpRouter } from "convex/server";
-import { auth } from "./auth";
+import { authComponent, createAuth } from "./auth";
 import { submitSurveyAction } from "./apiActions/surveySubmissionsActions";
 import { getStaffList } from "./apiActions/staffActions";
 import { submitClientOnboardingAction } from "./apiActions/clientActions";
 
 const http = httpRouter();
 
-auth.addHttpRoutes(http);
+authComponent.registerRoutes(http, createAuth);
 
 // GET ROUTES
 http.route({

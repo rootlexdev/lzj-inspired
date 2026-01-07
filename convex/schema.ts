@@ -1,6 +1,5 @@
 // Add hotels to business type
 
-import { authTables } from "@convex-dev/auth/server";
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
 import {
@@ -31,8 +30,6 @@ import {
 } from "./unions";
 
 export default defineSchema({
-    ...authTables,
-    // auth table
     staff: defineTable({
         firstName: v.string(),
         lastName: v.string(),
@@ -47,7 +44,7 @@ export default defineSchema({
         role: AccountRoleUnion,
         avatar: v.optional(v.string()),
         accountStatus: AccountStatusUnion,
-        userId: v.id("users"),
+        userId: v.string(),
         staffSubmissionId: v.id("staffSubmissions"),
     })
         .index("by_position", ["position"])
@@ -134,10 +131,10 @@ export default defineSchema({
         role: WorkspaceRoleUnion,
         joined: v.optional(v.number()),
         resendCount: v.number(),
-        invitedBy: v.id("users"),
+        invitedBy: v.string(),
     }).index("by_invited_by", ["invitedBy"]),
     workspaceMembers: defineTable({
-        userId: v.id("users"),
+        userId: v.string(),
         role: WorkspaceRoleUnion,
     }).index("by_role", ["role"]),
 

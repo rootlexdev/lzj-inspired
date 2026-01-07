@@ -12,7 +12,7 @@ export const ResendOTP = Email({
     },
     async sendVerificationRequest({ identifier: email, token, expires }) {
         const resend = new ResendAPI(process.env.AUTH_RESEND_KEY);
-
+        console.log("Resnd key:", resend.apiKeys);
         const html = `
         <html>
           <head>

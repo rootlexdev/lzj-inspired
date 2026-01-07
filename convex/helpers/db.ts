@@ -1,7 +1,6 @@
-import { Id } from "../_generated/dataModel";
 import { QueryCtx } from "../_generated/server";
 
-export const getProfileByUserId = (ctx: QueryCtx, userId: Id<"users">) => {
+export const getProfileByUserId = (ctx: QueryCtx, userId: string) => {
     return ctx.db
         .query("staff")
         .filter(q => q.eq(q.field("userId"), userId))
@@ -10,7 +9,7 @@ export const getProfileByUserId = (ctx: QueryCtx, userId: Id<"users">) => {
 
 export const getAdminProfileByUserId = async (
     ctx: QueryCtx,
-    userId: Id<"users">
+    userId: string
 ) => {
     const profile = await ctx.db
         .query("staff")

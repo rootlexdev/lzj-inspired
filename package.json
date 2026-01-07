@@ -11,6 +11,8 @@
   "dependencies": {
     "@auth/core": "0.37.0",
     "@convex-dev/auth": "^0.0.90",
+    "@convex-dev/better-auth": "^0.10.9",
+    "@convex-dev/resend": "^0.2.3",
     "@gsap/react": "^2.1.2",
     "@hookform/resolvers": "^5.2.2",
     "@lottiefiles/dotlottie-react": "^0.17.10",
@@ -18,7 +20,9 @@
     "@radix-ui/react-label": "^2.1.8",
     "@radix-ui/react-separator": "^1.1.8",
     "@radix-ui/react-slot": "^1.2.4",
+    "@react-email/components": "^1.0.3",
     "@uploadthing/react": "^7.3.3",
+    "better-auth": "1.4.9",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "convex": "^1.31.0",
