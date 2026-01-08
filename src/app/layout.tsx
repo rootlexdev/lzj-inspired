@@ -6,6 +6,7 @@ import localFont from "next/font/local";
 import { Toaster } from "sonner";
 import NextTopLoader from "nextjs-toploader";
 import { ConvexClientProvider } from "@/components/providers/convex-client-provider";
+import RootModal from "@/components/modals/root-modal";
 
 const inter = Inter({
     variable: "--font-inter",
@@ -61,6 +62,7 @@ export default function RootLayout({
                 <ConvexClientProvider>
                     {children}
                     <Toaster />
+                    <RootModal />
                     <NextTopLoader color="#f7c74b" />
                 </ConvexClientProvider>
             </body>

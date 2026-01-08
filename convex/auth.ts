@@ -2,7 +2,7 @@ import { createClient, type GenericCtx } from "@convex-dev/better-auth";
 import { convex } from "@convex-dev/better-auth/plugins";
 import { components } from "./_generated/api";
 import { DataModel } from "./_generated/dataModel";
-import { query } from "./_generated/server";
+import { MutationCtx, query, QueryCtx } from "./_generated/server";
 import { betterAuth } from "better-auth/minimal";
 import authConfig from "./auth.config";
 import {
@@ -67,3 +67,9 @@ export const getCurrentUser = query({
         return authComponent.getAuthUser(ctx);
     },
 });
+
+// ADD THIS: A reusable helper for other server functions
+export async function getAuthUserId(ctx: MutationCtx | QueryCtx) {
+    const user = await authComponent.getAuthUser(ctx);
+    return user._id ?? null; // This returns the string ID Better Auth uses
+}

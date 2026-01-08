@@ -1,7 +1,10 @@
-import React from "react";
+"use client";
+import { useGetCurrentUser } from "@/lib/features/auth/use-get-current-user";
 
 const SecurePage = () => {
-    return <div>SecurePage</div>;
+    const { data: profile } = useGetCurrentUser();
+
+    return <div>Hi {profile?.firstName}</div>;
 };
 
 export default SecurePage;

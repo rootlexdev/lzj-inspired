@@ -26,6 +26,7 @@ import type * as helpers_constants from "../helpers/constants.js";
 import type * as helpers_convexTypes from "../helpers/convexTypes.js";
 import type * as helpers_db from "../helpers/db.js";
 import type * as helpers_formatters from "../helpers/formatters.js";
+import type * as helpers_functions from "../helpers/functions.js";
 import type * as helpers_templates from "../helpers/templates.js";
 import type * as helpers_utils from "../helpers/utils.js";
 import type * as helpers_validators_clientOnboarding from "../helpers/validators/clientOnboarding.js";
@@ -35,6 +36,7 @@ import type * as internalServices_clientServices from "../internalServices/clien
 import type * as internalServices_staffServices from "../internalServices/staffServices.js";
 import type * as internalServices_surveyServices from "../internalServices/surveyServices.js";
 import type * as lib_ResendOTP from "../lib/ResendOTP.js";
+import type * as staff_auth from "../staff/auth.js";
 import type * as staff_submissions from "../staff/submissions.js";
 import type * as unions from "../unions.js";
 import type * as utils_constants_permissions from "../utils/constants/permissions.js";
@@ -69,6 +71,7 @@ declare const fullApi: ApiFromModules<{
   "helpers/convexTypes": typeof helpers_convexTypes;
   "helpers/db": typeof helpers_db;
   "helpers/formatters": typeof helpers_formatters;
+  "helpers/functions": typeof helpers_functions;
   "helpers/templates": typeof helpers_templates;
   "helpers/utils": typeof helpers_utils;
   "helpers/validators/clientOnboarding": typeof helpers_validators_clientOnboarding;
@@ -78,6 +81,7 @@ declare const fullApi: ApiFromModules<{
   "internalServices/staffServices": typeof internalServices_staffServices;
   "internalServices/surveyServices": typeof internalServices_surveyServices;
   "lib/ResendOTP": typeof lib_ResendOTP;
+  "staff/auth": typeof staff_auth;
   "staff/submissions": typeof staff_submissions;
   unions: typeof unions;
   "utils/constants/permissions": typeof utils_constants_permissions;

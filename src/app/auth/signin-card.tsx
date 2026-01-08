@@ -23,7 +23,7 @@ interface Props {
 
 const SignInCard = ({ onSwitch }: Props) => {
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    // const [password, setPassword] = useState("");
     const [error] = useState("");
     const [pending, setPending] = useState(false);
     const [otpLoading, setOtpLoading] = useState(false);
@@ -33,34 +33,37 @@ const SignInCard = ({ onSwitch }: Props) => {
     const [otp, setOtp] = useState("");
     const [otpSent, setOtpSent] = useState(false);
 
-    const handleSignIn = async () => {
-        await authClient.signIn.email(
-            {
-                email,
-                password,
-            },
-            {
-                onRequest: () => {
-                    setOtpLoading(true);
-                },
-                onSuccess: ctx => {
-                    setOtpLoading(false);
-                    setPending(false);
-                    setOtpSent(true);
-                    console.log("User data:", ctx.data);
-                },
-                onError: ctx => {
-                    console.log("Error:", ctx);
-                    setOtpLoading(false);
-                    alert(ctx.error.message);
-                    setPending(false);
-                },
-            }
-        );
-    };
+    // const handleSignIn = async () => {
+    //     await authClient.signIn.email(
+    //         {
+    //             email,
+    //             password,
+    //         },
+    //         {
+    //             onRequest: () => {
+    //                 setOtpLoading(true);
+    //             },
+    //             onSuccess: ctx => {
+    //                 setOtpLoading(false);
+    //                 setPending(false);
+    //                 setOtpSent(true);
+    //                 console.log("User data:", ctx.data);
+    //             },
+    //             onError: ctx => {
+    //                 console.log("Error:", ctx);
+    //                 setOtpLoading(false);
+    //                 alert(ctx.error.message);
+    //                 setPending(false);
+    //             },
+    //         }
+    //     );
+    // };
 
-    const handleOtpSignIn = async () => {
-        if (!otpSent) {
+    const handleOtpSignIn = async (otpValue?: string) => {
+        console.log("OTP:", otp);
+        setPending(false);
+
+        if (!otpSent || !otpValue) {
             await authClient.emailOtp.sendVerificationOtp(
                 {
                     email,
@@ -84,7 +87,7 @@ const SignInCard = ({ onSwitch }: Props) => {
             await authClient.signIn.emailOtp(
                 {
                     email,
-                    otp,
+                    otp: otpValue,
                 },
                 {
                     onRequest: () => {
@@ -92,10 +95,11 @@ const SignInCard = ({ onSwitch }: Props) => {
                     },
                     onSuccess: () => {
                         setOtpLoading(false);
-                        router.push("/");
+                        router.push("/secure-area");
                     },
                     onError: (ctx: unknown) => {
                         setOtpLoading(false);
+                        toast.error("Failed to login");
                         console.log(ctx);
                         console.log(
                             ctx instanceof Error
@@ -134,7 +138,7 @@ const SignInCard = ({ onSwitch }: Props) => {
         setPendingVerification(true);
         console.log("Value:", value);
 
-        handleOtpSignIn();
+        handleOtpSignIn(value);
     };
 
     return (
@@ -201,7 +205,7 @@ const SignInCard = ({ onSwitch }: Props) => {
                                 required
                                 name="email"
                             />
-                            <Input
+                            {/* <Input
                                 disabled={pending || isPending || otpLoading}
                                 value={password}
                                 onChange={e => setPassword(e.target.value)}
@@ -209,7 +213,7 @@ const SignInCard = ({ onSwitch }: Props) => {
                                 type="text"
                                 required
                                 name="password"
-                            />
+                            /> */}
                             <Button
                                 type="submit"
                                 className="w-full"
