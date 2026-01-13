@@ -149,3 +149,55 @@ export const ClientMenuFormatUnion = v.union(
     v.literal("website"),
     v.literal("none")
 );
+
+export const ProjectTypeUnion = v.union(
+    v.literal("DASHBOARD"),
+    v.literal("WORKFLOW_AUTOMATION"),
+    v.literal("PORTALS"),
+    v.literal("INVENTORY"),
+    v.literal("BUSINESS_INTELLIGENCE"),
+    v.literal("AI_ASSISTANCE")
+);
+
+export const CompanySizeUnion = v.union(
+    v.literal("SME"), // Micro-tools/Small Automations
+    v.literal("MID_MARKET"), // Standard Business Portals
+    v.literal("ENTERPRISE") // Advanced BI / Complex Inventory
+);
+
+export const BudgetUnion = v.union(
+    v.literal("UNDER_1M"), // Micro-tools/Small Automations
+    v.literal("1M_TO_5M"), // Standard Business Portals
+    v.literal("5M_TO_15M"), // Advanced BI / Complex Inventory
+    v.literal("15M_TO_50M"), // Enterprise-grade systems
+    v.literal("OVER_50M"), // Large scale digital transformation
+    v.literal("UNDETERMINED") // "I need a quote based on requirements"
+);
+
+export const IndustryUnion = v.union(
+    v.literal("HOSPITALITY_AND_RESTAURANTS"), // Your primary target
+    v.literal("OIL_AND_GAS"),
+    v.literal("LOGISTICS_AND_SUPPLY_CHAIN"),
+    v.literal("RETAIL_AND_ECOMMERCE"),
+    v.literal("FINANCIAL_SERVICES"),
+    v.literal("MANUFACTURING"),
+    v.literal("PROFESSIONAL_SERVICES"),
+    v.literal("OTHER")
+);
+
+export const ProjectRequestStatusUnion = v.union(
+    v.literal("PENDING"),
+    v.literal("CONTACTED"),
+    v.literal("IN_PROGRESS"),
+    v.literal("COMPLETED"),
+    v.literal("ARCHIVED")
+);
+
+/* Lead state */
+export const MessageStatusUnion = v.union(
+    v.literal("NEW"),
+    v.literal("CONTACTED"),
+    v.literal("IN_PROGRESS"),
+    v.literal("CLOSE"),
+    v.literal("SPAM")
+);

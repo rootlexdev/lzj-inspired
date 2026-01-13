@@ -25,7 +25,9 @@ const Footer = () => {
                     </p>
                 </div>
                 <div>
-                    <Button>Sign up for free</Button>
+                    <Link href="/get-started">
+                        <Button>Get Started</Button>
+                    </Link>
                 </div>
             </div>
 
@@ -68,19 +70,20 @@ const Footer = () => {
                             Company
                         </h3>
                         <Link href={"/about"}>About Us</Link>
-                        <Link href={"/careers"}>Careers</Link>
-                        <Link href={"/blog"}>Blog</Link>
-                        <Link href={"/faqs"}>FAQs</Link>
+                        <Link href={"/careers"}>Contact Us</Link>
+                        {/* <Link href={"/careers"}>Contact Us</Link> */}
+                        {/* <Link href={"/blog"}>Blog</Link> */}
+                        {/* <Link href={"/faqs"}>FAQs</Link> */}
                     </div>
                     <div className="flex flex-col text-body-text gap-y-4">
                         <h3 className="text-dark-navy font-semibold">
                             Solutions
                         </h3>
-                        <Link href={"/"}>Dashboard & Analytics</Link>
-                        <Link href={"/"}>Worklow & Automation</Link>
-                        <Link href={"/"}>Portals</Link>
-                        <Link href={"/"}>Inventory Systems</Link>
-                        <Link href={"/"}>All Solutions</Link>
+                        <Link href={"/solutions"}>Dashboard & Analytics</Link>
+                        <Link href={"/solutions"}>Worklow & Automation</Link>
+                        <Link href={"/solutions"}>Portals</Link>
+                        <Link href={"/solutions"}>Inventory Systems</Link>
+                        <Link href={"/solutions"}>All Solutions</Link>
                     </div>
                 </div>
             </div>

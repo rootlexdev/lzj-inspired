@@ -5,19 +5,19 @@ import ProblemsSection from "@/sections/problems-section";
 import SolutionsSection2 from "@/sections/solutions-section-2";
 import Testimonials from "@/sections/testimonials";
 import WhyChooseUs from "@/sections/why-choose-us";
-import Preloader from "@/sections/preloader";
-// import { useEffect } from "react";
-// import useLoaderStore from "@/lib/stores/loader";
+// import Preloader from "@/sections/preloader";
+import { useEffect } from "react";
+import useLoaderStore from "@/lib/stores/loader";
 
 export default function Home() {
-    // const { setLoaded } = useLoaderStore();
+    const { setLoaded } = useLoaderStore();
 
-    // useEffect(() => {
-    //     setTimeout(() => setLoaded(), 1000);
-    // }, [setLoaded]);
+    useEffect(() => {
+        setTimeout(() => setLoaded(), 1000);
+    }, [setLoaded]);
     return (
         <div>
-            <Preloader />
+            {/* <Preloader /> */}
             <HeroSection />
             <PartnersScroll />
             <ProblemsSection />

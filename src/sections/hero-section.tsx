@@ -3,6 +3,7 @@ import useLoaderStore from "@/lib/stores/loader";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
+import Link from "next/link";
 
 const HeroSection = () => {
     const { isLoaded } = useLoaderStore();
@@ -103,10 +104,16 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-col lg:flex-row items-center gap-6 lg:overflow-hidden hero-btns">
-                <Button className="w-full lg:w-fit">Explore Solutions</Button>
-                <Button variant={"outline"} className="w-full lg:w-fit">
-                    Book a Consultation
-                </Button>
+                <Link href={"/solutions"}>
+                    <Button className="w-full lg:w-fit">
+                        Explore Solutions
+                    </Button>
+                </Link>
+                <Link href={"/get-started"}>
+                    <Button variant={"outline"} className="w-full lg:w-fit">
+                        Book a Consultation
+                    </Button>
+                </Link>
             </div>
 
             <div

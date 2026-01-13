@@ -69,14 +69,9 @@ const Navbar = () => {
 
             <div className="overflow-hidden ">
                 <div className="hidden lg:flex items-center gap-x-4 nav-part">
-                    {/* <Link className="text-dark-navy font-medium" href={"/"}>
-                        Login
-                    </Link> */}
-                    <Link className="text-dark-navy font-medium" href={"/"}>
-                        Contact Sales
+                    <Link href={"/get-started"}>
+                        <Button>Start for free</Button>
                     </Link>
-
-                    <Button>Start for free</Button>
                 </div>
 
                 <div className="flex flex-col gap-y-1.5 lg:hidden">

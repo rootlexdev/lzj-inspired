@@ -36,6 +36,11 @@ import type * as internalServices_clientServices from "../internalServices/clien
 import type * as internalServices_staffServices from "../internalServices/staffServices.js";
 import type * as internalServices_surveyServices from "../internalServices/surveyServices.js";
 import type * as lib_ResendOTP from "../lib/ResendOTP.js";
+import type * as lib_constants from "../lib/constants.js";
+import type * as lib_emailActions from "../lib/emailActions.js";
+import type * as lib_templates from "../lib/templates.js";
+import type * as public_client from "../public/client.js";
+import type * as public_contact from "../public/contact.js";
 import type * as staff_auth from "../staff/auth.js";
 import type * as staff_submissions from "../staff/submissions.js";
 import type * as unions from "../unions.js";
@@ -81,6 +86,11 @@ declare const fullApi: ApiFromModules<{
   "internalServices/staffServices": typeof internalServices_staffServices;
   "internalServices/surveyServices": typeof internalServices_surveyServices;
   "lib/ResendOTP": typeof lib_ResendOTP;
+  "lib/constants": typeof lib_constants;
+  "lib/emailActions": typeof lib_emailActions;
+  "lib/templates": typeof lib_templates;
+  "public/client": typeof public_client;
+  "public/contact": typeof public_contact;
   "staff/auth": typeof staff_auth;
   "staff/submissions": typeof staff_submissions;
   unions: typeof unions;

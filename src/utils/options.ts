@@ -1,5 +1,51 @@
 import { SelectOptionType } from "./interfaces";
 
+export const INDUSTRY_OPTIONS = [
+    {
+        label: "Hospitality & Restaurants",
+        value: "HOSPITALITY_AND_RESTAURANTS",
+    },
+    { label: "Oil & Gas", value: "OIL_AND_GAS" },
+    { label: "Logistics & Supply Chain", value: "LOGISTICS_AND_SUPPLY_CHAIN" },
+    { label: "Retail & E-commerce", value: "RETAIL_AND_ECOMMERCE" },
+    { label: "Financial Services", value: "FINANCIAL_SERVICES" },
+    { label: "Manufacturing", value: "MANUFACTURING" },
+    { label: "Professional Services", value: "PROFESSIONAL_SERVICES" },
+    { label: "Other", value: "OTHER" },
+];
+
+export const PROJECT_TYPE_OPTIONS = [
+    { label: "Dashboard & Analytics", value: "DASHBOARD" },
+    { label: "Workflow Automation", value: "WORKFLOW_AUTOMATION" },
+    { label: "Portals", value: "PORTALS" },
+    { label: "Inventory Systems", value: "INVENTORY" },
+    { label: "Business Intelligence", value: "BUSINESS_INTELLIGENCE" },
+    { label: "AI-Assisted Decisioning", value: "AI_ASSISTANCE" },
+];
+
+export const COMPANY_SIZE_OPTIONS = [
+    { label: "SME (Small/Medium)", value: "SME" },
+    { label: "Mid-Market", value: "MID_MARKET" },
+    { label: "Enterprise", value: "ENTERPRISE" },
+];
+
+export const BUDGET_RANGE_OPTIONS = [
+    { label: "Under ₦1M", value: "UNDER_1M" },
+    { label: "₦1M - ₦5M", value: "1M_TO_5M" },
+    { label: "₦5M - ₦15M", value: "5M_TO_15M" },
+    { label: "₦15M - ₦50M", value: "15M_TO_50M" },
+    { label: "Above ₦50M", value: "OVER_50M" },
+    { label: "Undetermined / Quote Required", value: "UNDETERMINED" },
+];
+
+export const INQUIRY_STATUS_OPTIONS = [
+    { label: "Pending", value: "PENDING" },
+    { label: "Contacted", value: "CONTACTED" },
+    { label: "In Progress", value: "IN_PROGRESS" },
+    { label: "Completed", value: "COMPLETED" },
+    { label: "Archived", value: "ARCHIVED" },
+];
+
 export const GENDER_OPTIONS: SelectOptionType[] = [
     {
         value: "MALE",

@@ -19,7 +19,7 @@ const WhyChooseUs = () => {
                 scrollTrigger: {
                     trigger: containerRef.current,
                     start: "top 50%",
-                    toggleActions: "play reverse play reverse",
+                    toggleActions: "play none none none",
                 },
                 // onComplete
             });
