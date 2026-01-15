@@ -96,13 +96,15 @@ const SignInCard = ({}: Props) => {
             },
             {
                 onSuccess() {
-                    setPending(false);
                     console.log("Run verification funtion");
                     handleOtpSignIn();
                 },
                 onError(error) {
                     console.log("[CHECK_LOGIN_ACCT:]", error);
                     toast.error(error.message || "Failed to login account.");
+                },
+                onSettled() {
+                    setPending(false);
                 },
             }
         );
@@ -178,15 +180,6 @@ const SignInCard = ({}: Props) => {
                                 required
                                 name="email"
                             />
-                            {/* <Input
-                                disabled={pending || isPending || otpLoading}
-                                value={password}
-                                onChange={e => setPassword(e.target.value)}
-                                placeholder="Password"
-                                type="text"
-                                required
-                                name="password"
-                            /> */}
                             <Button
                                 type="submit"
                                 className="w-full"
