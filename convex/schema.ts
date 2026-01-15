@@ -81,13 +81,13 @@ export default defineSchema({
         phoneNumber: v.string(),
         relationship: v.optional(NextOfKinRelationshipUnion),
         relationshipOther: v.optional(v.string()),
-    }),
+    }).index("by_staff_id", ["staffSubmissionId"]),
     staffAccountDetails: defineTable({
         staffSubmissionId: v.id("staffSubmissions"),
         accountName: v.string(),
         accountNumber: v.string(),
         bank: v.string(),
-    }),
+    }).index("by_staff_id", ["staffSubmissionId"]),
 
     surveySubmissions: defineTable({
         fullName: v.string(),

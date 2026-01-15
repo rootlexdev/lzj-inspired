@@ -22,7 +22,7 @@ const AdminSidebarItem = ({ icon: Icon, url, label, isActive }: Props) => {
                 isActive && "bg-[#DCFCE7]"
             )}
         >
-            <Link href={`${url}`}>
+            <Link href={`/secure-area/${url}`}>
                 <Icon
                     className={cn(
                         "size-5 mr-2 text-supporting-text group-hover:text-green",

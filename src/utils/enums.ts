@@ -1,3 +1,9 @@
+export type StaffScreenTabsEnum =
+    | "STAFF_DETAILS"
+    | "NEXT_OF_KIN"
+    | "ACCOUNT_DETAILS"
+    | "SURVEYS_SUBMITTED";
+
 export type GenderTypeEnum = "MALE" | "FEMALE";
 
 export type ReligionTypeEnum =

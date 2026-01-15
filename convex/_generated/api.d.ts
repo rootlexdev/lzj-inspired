@@ -8,6 +8,7 @@
  * @module
  */
 
+import type * as admin_staff from "../admin/staff.js";
 import type * as apiActions_clientActions from "../apiActions/clientActions.js";
 import type * as apiActions_cors from "../apiActions/cors.js";
 import type * as apiActions_staffActions from "../apiActions/staffActions.js";
@@ -38,6 +39,7 @@ import type * as internalServices_surveyServices from "../internalServices/surve
 import type * as lib_ResendOTP from "../lib/ResendOTP.js";
 import type * as lib_constants from "../lib/constants.js";
 import type * as lib_emailActions from "../lib/emailActions.js";
+import type * as lib_internalMuts from "../lib/internalMuts.js";
 import type * as lib_templates from "../lib/templates.js";
 import type * as public_client from "../public/client.js";
 import type * as public_contact from "../public/contact.js";
@@ -58,6 +60,7 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  "admin/staff": typeof admin_staff;
   "apiActions/clientActions": typeof apiActions_clientActions;
   "apiActions/cors": typeof apiActions_cors;
   "apiActions/staffActions": typeof apiActions_staffActions;
@@ -88,6 +91,7 @@ declare const fullApi: ApiFromModules<{
   "lib/ResendOTP": typeof lib_ResendOTP;
   "lib/constants": typeof lib_constants;
   "lib/emailActions": typeof lib_emailActions;
+  "lib/internalMuts": typeof lib_internalMuts;
   "lib/templates": typeof lib_templates;
   "public/client": typeof public_client;
   "public/contact": typeof public_contact;

@@ -2,14 +2,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { MdCardGiftcard, MdOutlineSpaceDashboard } from "react-icons/md";
+import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { usePathname } from "next/navigation";
 import { Cog } from "lucide-react";
 import { BsQuestionCircle } from "react-icons/bs";
 import SidebarItem from "./sidebar-item";
-import { FaUsers } from "react-icons/fa";
-import { CiBitcoin } from "react-icons/ci";
+import { FaUserTie } from "react-icons/fa";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
+import { IoBriefcaseOutline, IoNewspaperOutline } from "react-icons/io5";
+import { IoIosHelpCircleOutline } from "react-icons/io";
 
 const AdminSideBar = () => {
     const pathname = usePathname();
@@ -19,7 +20,7 @@ const AdminSideBar = () => {
             <div className="p-4 flex border-b border-b-muted">
                 <Link href={`/`} className="flex items-center">
                     <Image
-                        src={"/assets/images/logo.svg"}
+                        src={"/assets/logo.svg"}
                         alt="logo"
                         width={100}
                         height={50}
@@ -40,22 +41,22 @@ const AdminSideBar = () => {
                         isActive={pathname === "/"}
                     />
                     <SidebarItem
-                        icon={MdCardGiftcard}
-                        label="Gift Cards"
-                        url={`/giftcards`}
-                        isActive={pathname.includes("/giftcards")}
+                        icon={FaUserTie}
+                        label="Staff Submissions"
+                        url={`/staff-submissions`}
+                        isActive={pathname.includes("/staff-submissions")}
                     />
                     <SidebarItem
-                        icon={CiBitcoin}
-                        label="Cryptocurrency"
-                        url={`/Cryptocurrency`}
-                        isActive={pathname.includes("/Cryptocurrency")}
+                        icon={IoNewspaperOutline}
+                        label="Customer Surveys"
+                        url={`/customer-surveys`}
+                        isActive={pathname.includes("/customer-surveys")}
                     />
                     <SidebarItem
-                        icon={FaUsers}
-                        label="Customers"
-                        url={`/customers`}
-                        isActive={pathname.includes("/customers")}
+                        icon={IoBriefcaseOutline}
+                        label="Clients"
+                        url={`/clients`}
+                        isActive={pathname.includes("/clients")}
                     />
                     <SidebarItem
                         icon={HiOutlineBuildingOffice2}
@@ -64,10 +65,10 @@ const AdminSideBar = () => {
                         isActive={pathname.includes("/management")}
                     />
                     <SidebarItem
-                        icon={FaUsers}
-                        label="App Banners"
-                        url={`/app-banners`}
-                        isActive={pathname.includes("/app-banners")}
+                        icon={IoIosHelpCircleOutline}
+                        label="Project Requests"
+                        url={`/project-requests`}
+                        isActive={pathname.includes("/project-requests")}
                     />
                 </div>
 

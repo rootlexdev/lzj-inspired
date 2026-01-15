@@ -15,6 +15,7 @@ import Avatar from "@/components/ui/avatar";
 import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { authClient } from "@/lib/auth-client";
+import ErrorScreen from "./error-screen";
 
 const AdminTopbar = () => {
     const { data: profile, isLoading } = useGetCurrentUser();
@@ -26,7 +27,13 @@ const AdminTopbar = () => {
         });
     };
 
+    console.log("The profile:", profile);
+
     if (isLoading || !profile) return <LoaderComponent />;
+
+    if (profile === null) {
+        return <ErrorScreen />;
+    }
 
     return (
         <div>

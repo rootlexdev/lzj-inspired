@@ -1,6 +1,6 @@
 import { createClient, type GenericCtx } from "@convex-dev/better-auth";
 import { convex } from "@convex-dev/better-auth/plugins";
-import { components } from "./_generated/api";
+import { components, internal } from "./_generated/api";
 import { DataModel } from "./_generated/dataModel";
 import { MutationCtx, query, QueryCtx } from "./_generated/server";
 import { betterAuth } from "better-auth/minimal";
@@ -23,6 +23,24 @@ export const createAuth = (ctx: GenericCtx<DataModel>) => {
     return betterAuth({
         baseURL: siteUrl,
         database: authComponent.adapter(ctx),
+        databaseHooks: {
+            user: {
+                create: {
+                    after: async user => {
+                        const actionCtx = requireActionCtx(ctx);
+
+                        // Call the internal mutation safely from the action context
+                        await actionCtx.runMutation(
+                            internal.lib.internalMuts.createProfileInternal,
+                            {
+                                email: user.email,
+                                userId: user.id,
+                            }
+                        );
+                    },
+                },
+            },
+        },
         // Configure simple, non-verified email/password to get started
         emailAndPassword: {
             enabled: true,
@@ -70,6 +88,11 @@ export const getCurrentUser = query({
 
 // ADD THIS: A reusable helper for other server functions
 export async function getAuthUserId(ctx: MutationCtx | QueryCtx) {
-    const user = await authComponent.getAuthUser(ctx);
-    return user._id ?? null; // This returns the string ID Better Auth uses
+    try {
+        const user = await authComponent.getAuthUser(ctx);
+        return user._id ?? null; // This returns the string ID Better Auth uses
+    } catch (err) {
+        console.log("AUTH ERROR:", err);
+        return null;
+    }
 }

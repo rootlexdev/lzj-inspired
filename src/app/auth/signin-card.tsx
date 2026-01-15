@@ -16,14 +16,14 @@ import VerificationInput from "react-verification-input";
 import { cn } from "@/lib/utils";
 import { useCheckAdminAccountExists } from "@/lib/features/auth/use-check-admin-account-exists";
 import { authClient } from "@/lib/auth-client";
+import Link from "next/link";
 
 interface Props {
     onSwitch: () => void;
 }
 
-const SignInCard = ({ onSwitch }: Props) => {
+const SignInCard = ({}: Props) => {
     const [email, setEmail] = useState("");
-    // const [password, setPassword] = useState("");
     const [error] = useState("");
     const [pending, setPending] = useState(false);
     const [otpLoading, setOtpLoading] = useState(false);
@@ -33,35 +33,8 @@ const SignInCard = ({ onSwitch }: Props) => {
     const [otp, setOtp] = useState("");
     const [otpSent, setOtpSent] = useState(false);
 
-    // const handleSignIn = async () => {
-    //     await authClient.signIn.email(
-    //         {
-    //             email,
-    //             password,
-    //         },
-    //         {
-    //             onRequest: () => {
-    //                 setOtpLoading(true);
-    //             },
-    //             onSuccess: ctx => {
-    //                 setOtpLoading(false);
-    //                 setPending(false);
-    //                 setOtpSent(true);
-    //                 console.log("User data:", ctx.data);
-    //             },
-    //             onError: ctx => {
-    //                 console.log("Error:", ctx);
-    //                 setOtpLoading(false);
-    //                 alert(ctx.error.message);
-    //                 setPending(false);
-    //             },
-    //         }
-    //     );
-    // };
-
     const handleOtpSignIn = async (otpValue?: string) => {
         console.log("OTP:", otp);
-        setPending(false);
 
         if (!otpSent || !otpValue) {
             await authClient.emailOtp.sendVerificationOtp(
@@ -99,6 +72,7 @@ const SignInCard = ({ onSwitch }: Props) => {
                     },
                     onError: (ctx: unknown) => {
                         setOtpLoading(false);
+                        setPendingVerification(false);
                         toast.error("Failed to login");
                         console.log(ctx);
                         console.log(
@@ -115,14 +89,14 @@ const SignInCard = ({ onSwitch }: Props) => {
 
     const onPasswordSignIn = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+        setPending(true);
         checkAccount(
             {
                 email,
             },
             {
                 onSuccess() {
-                    setPending(true);
+                    setPending(false);
                     console.log("Run verification funtion");
                     handleOtpSignIn();
                 },
@@ -136,7 +110,6 @@ const SignInCard = ({ onSwitch }: Props) => {
 
     const handleVerification = (value: string) => {
         setPendingVerification(true);
-        console.log("Value:", value);
 
         handleOtpSignIn(value);
     };
@@ -228,9 +201,14 @@ const SignInCard = ({ onSwitch }: Props) => {
                     <Separator />
                 </CardContent>
             </Card>
-            <div className="text-center mt-4 text-sm text-neutral-600 dark:text-neutral-400 flex items-center gap-4">
+            <div className="text-center mt-4 text-sm text-neutral-600 dark:text-neutral-400 flex items-center justify-center gap-2">
                 Don&apos;t have an account?{" "}
-                <Button onClick={() => onSwitch()}>Sign Up</Button>
+                <Link
+                    href={"mailto:info@lzjesoleen.com"}
+                    className="text-primary-gold font-semibold"
+                >
+                    Contact Support
+                </Link>
             </div>
         </div>
     );
