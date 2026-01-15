@@ -10,7 +10,7 @@ export const createProfileInternal = internalMutation({
     handler: async (ctx, args) => {
         const submission = await ctx.db
             .query("staffSubmissions")
-            .filter(q => q.eq(q.field("email"), args.email))
+            .filter(q => q.eq(q.field("workMail"), args.email))
             .unique();
         if (submission && submission.workMail) {
             const staffLength = await ctx.db.query("staff").collect();

@@ -21,7 +21,12 @@ export const checkAdminAccountExists = mutation({
 
             const submission = await ctx.db
                 .query("staffSubmissions")
-                .filter(q => q.eq(q.field("email"), args.email))
+                .filter(q =>
+                    q.or(
+                        q.eq(q.field("email"), args.email),
+                        q.eq(q.field("workMail"), args.email)
+                    )
+                )
                 .unique();
 
             if (submission) {
