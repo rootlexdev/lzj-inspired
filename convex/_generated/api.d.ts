@@ -9,6 +9,7 @@
  */
 
 import type * as admin_staff from "../admin/staff.js";
+import type * as admin_surveys from "../admin/surveys.js";
 import type * as apiActions_clientActions from "../apiActions/clientActions.js";
 import type * as apiActions_cors from "../apiActions/cors.js";
 import type * as apiActions_staffActions from "../apiActions/staffActions.js";
@@ -61,6 +62,7 @@ import type {
 
 declare const fullApi: ApiFromModules<{
   "admin/staff": typeof admin_staff;
+  "admin/surveys": typeof admin_surveys;
   "apiActions/clientActions": typeof apiActions_clientActions;
   "apiActions/cors": typeof apiActions_cors;
   "apiActions/staffActions": typeof apiActions_staffActions;
