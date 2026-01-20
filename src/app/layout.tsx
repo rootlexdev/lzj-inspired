@@ -7,6 +7,7 @@ import { Toaster } from "sonner";
 import NextTopLoader from "nextjs-toploader";
 import { ConvexClientProvider } from "@/components/providers/convex-client-provider";
 import RootModal from "@/components/modals/root-modal";
+import ReactQueryProvider from "@/components/providers/query-provider";
 
 const inter = Inter({
     variable: "--font-inter",
@@ -59,12 +60,14 @@ export default function RootLayout({
             <body
                 className={`${inter.variable} ${clashDisplay.variable} antialiased`}
             >
-                <ConvexClientProvider>
-                    {children}
-                    <Toaster />
-                    <RootModal />
-                    <NextTopLoader color="#f7c74b" />
-                </ConvexClientProvider>
+                <ReactQueryProvider>
+                    <ConvexClientProvider>
+                        {children}
+                        <Toaster />
+                        <RootModal />
+                        <NextTopLoader color="#f7c74b" />
+                    </ConvexClientProvider>
+                </ReactQueryProvider>
             </body>
         </html>
     );

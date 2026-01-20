@@ -35,7 +35,7 @@ export const createAuth = (ctx: GenericCtx<DataModel>) => {
                             {
                                 email: user.email,
                                 userId: user.id,
-                            }
+                            },
                         );
                     },
                 },
