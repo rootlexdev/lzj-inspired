@@ -18,7 +18,11 @@ export const RecordKeeping = z.enum(["Manual", "Excel", "Notebook"]);
 
 export const DailyOperations = z.enum(["Easy", "Hard"]);
 
-export const ManualVsAutomated = z.enum(["10% Manual", "30%", "50%+"]);
+export const ManualVsAutomated = z.enum([
+    "10% Manual",
+    "30% Manual",
+    "50%+ Manual",
+]);
 
 export const SurveySchema = z.object({
     fullName: z.string().min(1),
