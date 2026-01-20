@@ -14,6 +14,7 @@ export type ReligionTypeEnum =
 
 export type JobPositionTypeEnum =
     | "CEO"
+    | "PERSONAL-ASSISTANT"
     | "FULL-STACK-DEVELOPER"
     | "MARKETING-SALES";
 

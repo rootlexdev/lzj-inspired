@@ -95,7 +95,7 @@ const StaffRegistration = () => {
     // Handle local file preview
     const handleFileChange = (
         e: React.ChangeEvent<HTMLInputElement>,
-        uploadPart: StaffUploadPart
+        uploadPart: StaffUploadPart,
     ) => {
         const file = e.target.files?.[0];
         if (!file) return;
@@ -132,7 +132,7 @@ const StaffRegistration = () => {
 
     const uploadAllFiles = async () => {
         const selectedFiles = Object.values(files).filter(
-            (file): file is File => file !== null
+            (file): file is File => file !== null,
         );
 
         console.log("Selected files:", selectedFiles);
@@ -315,10 +315,10 @@ const StaffRegistration = () => {
                 },
                 onError(error) {
                     toast.error(
-                        error.message || "Failed to complete submission"
+                        error.message || "Failed to complete submission",
                     );
                 },
-            }
+            },
         );
     };
 
@@ -573,7 +573,7 @@ const StaffRegistration = () => {
                                                                 value.value as GenderTypeEnum,
                                                                 {
                                                                     shouldValidate: true,
-                                                                }
+                                                                },
                                                             );
                                                         }
                                                     }}
@@ -624,7 +624,7 @@ const StaffRegistration = () => {
                                                                 value.value as ReligionTypeEnum,
                                                                 {
                                                                     shouldValidate: true,
-                                                                }
+                                                                },
                                                             );
                                                         }
                                                     }}
@@ -683,7 +683,7 @@ const StaffRegistration = () => {
                                                                 value.value as JobPositionTypeEnum,
                                                                 {
                                                                     shouldValidate: true,
-                                                                }
+                                                                },
                                                             );
                                                         }
                                                     }}
@@ -717,12 +717,12 @@ const StaffRegistration = () => {
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                                 {renderUploadBox(
                                     "Upload your passport photograph",
-                                    "passport"
+                                    "passport",
                                 )}
 
                                 {renderUploadBox(
                                     "Upload your resume",
-                                    "resume"
+                                    "resume",
                                 )}
                             </div>
                         </div>
@@ -816,7 +816,7 @@ const StaffRegistration = () => {
                                                                 value.value as NextOfKinRelationshipTypeEnum,
                                                                 {
                                                                     shouldValidate: true,
-                                                                }
+                                                                },
                                                             );
                                                         }
                                                     }}
@@ -899,7 +899,7 @@ const StaffRegistration = () => {
                                                                 value.value,
                                                                 {
                                                                     shouldValidate: true,
-                                                                }
+                                                                },
                                                             );
                                                         }
                                                     }}

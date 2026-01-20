@@ -8,7 +8,7 @@ export const CompanySizeEnum = z.enum(
     ],
     {
         error: "Please select an estimated budget range",
-    }
+    },
 );
 
 export const BudgetEnum = z.enum(
@@ -22,7 +22,7 @@ export const BudgetEnum = z.enum(
     ],
     {
         error: "Please select an estimated budget range",
-    }
+    },
 );
 
 export const IndustryEnum = z.enum(
@@ -38,7 +38,7 @@ export const IndustryEnum = z.enum(
     ],
     {
         error: "Please select your industry",
-    }
+    },
 );
 
 export const ProjectTypeEnum = z.enum(
@@ -52,7 +52,7 @@ export const ProjectTypeEnum = z.enum(
     ],
     {
         error: "Please select a project type",
-    }
+    },
 );
 
 export const SolutionTypeEnum = z.enum(
@@ -72,7 +72,7 @@ export const SolutionTypeEnum = z.enum(
     ],
     {
         error: "Please select a relationship",
-    }
+    },
 );
 
 export const NextOfKinRelationshipEnum = z.enum(
@@ -92,19 +92,19 @@ export const NextOfKinRelationshipEnum = z.enum(
     ],
     {
         error: "Please select a relationship",
-    }
+    },
 );
 
 export const ReligionEnum = z.enum(
     ["CHRISTIANITY", "ISLAM", "TRADITIONAL", "OTHER"],
     {
         error: "Please select a religion",
-    }
+    },
 );
 
 export const JobPositionEnum = z.enum(
-    ["CEO", "FULL-STACK-DEVELOPER", "MARKETING-SALES"],
+    ["CEO", "PERSONAL-ASSISTANT", "FULL-STACK-DEVELOPER", "MARKETING-SALES"],
     {
         error: "Please select a position",
-    }
+    },
 );

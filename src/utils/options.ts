@@ -82,6 +82,10 @@ export const JOB_POSITION_OPTIONS: SelectOptionType[] = [
         label: "CEO",
     },
     {
+        value: "PERSONAL-ASSISTANT",
+        label: "Personal Assistant",
+    },
+    {
         value: "FULL-STACK-DEVELOPER",
         label: "Full Stack Developer",
     },

@@ -11,6 +11,7 @@ export const ReligionUnion = v.union(
 
 export const PositionUnion = v.union(
     v.literal("CEO"),
+    v.literal("PERSONAL-ASSISTANT"),
     v.literal("FULL-STACK-DEVELOPER"),
     v.literal("MARKETING-SALES"),
 );
