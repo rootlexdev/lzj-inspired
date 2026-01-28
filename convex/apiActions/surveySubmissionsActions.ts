@@ -29,8 +29,28 @@ export const submitSurveyAction = httpAction(async (ctx, request) => {
                     ...parsed,
                     submittedBy: parsed.submittedBy as Id<"staffSubmissions">,
                 },
-            }
+            },
         );
+
+        console.log("Response from internal services:, response");
+
+        if (!response.status) {
+            return new Response(
+                JSON.stringify({
+                    success: false,
+                    error:
+                        response.error ||
+                        "Failed to submit survey due to some errors.",
+                }),
+                {
+                    status: 400,
+                    headers: {
+                        ...corsHeaders(origin),
+                        "Content-Type": "application/json",
+                    },
+                },
+            );
+        }
 
         console.log("response:", response);
 
@@ -42,6 +62,7 @@ export const submitSurveyAction = httpAction(async (ctx, request) => {
             },
         });
     } catch (err) {
+        console.log("Survey Submission Error:", err);
         if (err instanceof ZodError) {
             return new Response(
                 JSON.stringify({
@@ -54,7 +75,7 @@ export const submitSurveyAction = httpAction(async (ctx, request) => {
                         ...corsHeaders(origin),
                         "Content-Type": "application/json",
                     },
-                }
+                },
             );
         }
 
@@ -66,7 +87,7 @@ export const submitSurveyAction = httpAction(async (ctx, request) => {
                     ...corsHeaders(origin),
                     "Content-Type": "application/json",
                 },
-            }
+            },
         );
     }
 });
