@@ -62,15 +62,6 @@ export const submitSurveyService = internalMutation({
         try {
             const data = args.data;
 
-            const dupName = await ctx.db
-                .query("surveySubmissions")
-                .filter(q => q.eq(q.field("fullName"), data.fullName))
-                .first();
-
-            if (dupName) {
-                throw new CustomError("Name exists already");
-            }
-
             if (data.contact) {
                 const dupContact = await ctx.db
                     .query("surveySubmissions")
