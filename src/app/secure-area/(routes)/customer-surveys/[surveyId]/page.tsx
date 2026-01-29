@@ -62,7 +62,7 @@ const SurveyDetailsPage = () => {
                             />
                             <TextDetail
                                 label="Keeping Track of your customers"
-                                value={data.trackingMethod?.join(", ")}
+                                value={data.trackingMethod}
                             />
                             <TextDetail
                                 label="What percentage of business decisions are made without access to proper customer data?"
