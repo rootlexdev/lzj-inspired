@@ -24,7 +24,7 @@ export const createSurveySubmission = mutation({
             // ===== Section 2A: Only if has_database === "No" =====
             knowLoyalCustomers: v.optional(YesNoUnion),
 
-            trackingMethod: v.optional(v.array(TrackingMethodUnion)),
+            trackingMethod: v.optional(TrackingMethodUnion),
             decisionsWithoutData: v.optional(DecisionsWithoutDataUnion),
             dataAccessImprovement: v.optional(YesNoUnion),
             wantMoreInfo: v.optional(YesNoUnion),

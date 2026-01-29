@@ -34,7 +34,7 @@ export const SurveySchema = z.object({
 
     // ===== Section 2A (No DB) =====
     knowLoyalCustomers: YesNo.optional(),
-    trackingMethod: z.array(TrackingMethod).optional(),
+    trackingMethod: TrackingMethod.optional(),
     decisionsWithoutData: DecisionsWithoutData.optional(),
     dataAccessImprovement: YesNo.optional(),
     wantMoreInfo: YesNo.optional(),
