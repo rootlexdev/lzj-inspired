@@ -35,7 +35,7 @@ const Solutions = () => {
                         className="w-[200px] md:w-100 h-[200px] md:h-100 object-cover rounded-xl"
                     />
                     <Image
-                        src={"/assets/images/menu.png"}
+                        src={"/assets/images/menu-items.png"}
                         alt="menu order"
                         width={200}
                         height={100}

@@ -10,11 +10,11 @@ const HeroSection = () => {
 
     useGSAP(() => {
         const heroTitle = gsap.utils.toArray(
-            `.header-title h1`
+            `.header-title h1`,
         ) as HTMLElement[];
 
         const heroBtns = gsap.utils.toArray(
-            `.hero-btns button`
+            `.hero-btns button`,
         ) as HTMLElement[];
 
         // This happens before the user sees anything
@@ -48,7 +48,7 @@ const HeroSection = () => {
                     opacity: 1,
                     stagger: 0.1,
                 },
-                "-=0.8"
+                "-=0.8",
             ) // Starts while titles are still finishing
 
             .to(
@@ -59,7 +59,7 @@ const HeroSection = () => {
                     ease: "expo.out",
                     duration: 1.5,
                 },
-                "-=1"
+                "-=1",
             ) // Overlap significantly with the buttons
 
             .to(
@@ -69,7 +69,7 @@ const HeroSection = () => {
                     duration: 1.6,
                     ease: "power4.inOut", // Smoother for large surface area reveals
                 },
-                "-=1.2"
+                "-=1.2",
             ); // Start this early to anchor the composition
     }, [isLoaded]);
 
@@ -120,13 +120,13 @@ const HeroSection = () => {
                 style={{
                     clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
                 }}
-                className="relative h-[400px] lg:h-[600px] w-full lg:w-[80%] mx-auto my-10 hero-banner"
+                className="relative aspect-video h-[400px] lg:h-[600px] w-full lg:w-[80%] mx-auto my-10 hero-banner"
             >
                 <Image
-                    src={"/assets/images/main-screen.jpg"}
+                    src={"/assets/images/rms/dashboard-overview.png"}
                     fill
                     alt="hero-dashboard"
-                    className="object-cover object-top"
+                    className="object-fit object-top"
                 />
             </div>
         </div>

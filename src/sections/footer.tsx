@@ -87,6 +87,35 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
+            {/* Newsletter */}
+            <div className="py-8 px-16 border-t border-b border-white/10 mb-8">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div>
+                        <h4 className="text-primary-gold font-semibold mb-1 text-2xl">
+                            Subscribe to our newsletter
+                        </h4>
+                        <p className="text-[#64748B] text-sm">
+                            Get product updates, company news, and more.
+                        </p>
+                    </div>
+                    <div className="flex items-center gap-3 w-full md:w-auto">
+                        <input
+                            type="email"
+                            placeholder="Enter your email"
+                            className="flex-1 md:w-64 px-4 py-3 rounded-[0.625rem] bg-white/5 border border-primary-gold/40 text-[#F8F8F8] placeholder-[#64748B] focus:outline-none focus:border-[#F7C74B]/80 transition-colors"
+                        />
+                        <Button
+                            className="px-6 py-3 rounded-[0.625rem] text-[#0B0D13] font-semibold whitespace-nowrap"
+                            style={{
+                                background:
+                                    "linear-gradient(107.38deg, #F3F1CF 26.16%, #EDC675 73.84%)",
+                            }}
+                        >
+                            Subscribe
+                        </Button>
+                    </div>
+                </div>
+            </div>
             <div className="bg-soft-white p-10 flex justify-center items-center text-slate-grey border-t border-light-grey">
                 <p className="text-center">
                     © LZJESOLEEN {new Date().getFullYear()}. All rights reserved

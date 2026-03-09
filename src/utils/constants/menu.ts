@@ -11,6 +11,11 @@ export const MenuLinks: NavLinkProps[] = [
         text: "Contact Sales",
         url: "/contact",
     },
+    {
+        hasDropdown: false,
+        text: "Restaurant Management System",
+        url: "/rms",
+    },
 ];
 
 // {

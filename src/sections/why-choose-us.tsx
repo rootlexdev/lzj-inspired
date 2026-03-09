@@ -31,12 +31,12 @@ const WhyChooseUs = () => {
                     opacity: 1,
                     rotate: 0,
                 },
-                "<"
+                "<",
             );
         },
         {
             scope: containerRef,
-        }
+        },
     );
 
     return (
@@ -74,9 +74,9 @@ const WhyChooseUs = () => {
                         })}
                     </div>
                 </div>
-                <div className="relative  lg:w-[55%] p-10 rounded-xl bg-slate-grey">
+                <div className="relative aspect-video lg:w-[55%] p-10 rounded-xl bg-slate-grey">
                     <Image
-                        src={"/assets/choose-us-dashboard.png"}
+                        src={"/assets/images/rms/daily-financial-report.png"}
                         alt="Choose us dashboard"
                         width={1600}
                         height={900}

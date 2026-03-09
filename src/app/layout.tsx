@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Urbanist } from "next/font/google";
 import "./globals.css";
 import "@/lib/gsap";
 import localFont from "next/font/local";
@@ -9,8 +9,8 @@ import { ConvexClientProvider } from "@/components/providers/convex-client-provi
 import RootModal from "@/components/modals/root-modal";
 import ReactQueryProvider from "@/components/providers/query-provider";
 
-const inter = Inter({
-    variable: "--font-inter",
+const urbanist = Urbanist({
+    variable: "--font-urbanist",
     subsets: ["latin"],
 });
 
@@ -58,7 +58,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${inter.variable} ${clashDisplay.variable} antialiased`}
+                className={`${urbanist.variable} ${clashDisplay.variable} antialiased`}
             >
                 <ReactQueryProvider>
                     <ConvexClientProvider>
