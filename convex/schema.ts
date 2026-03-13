@@ -264,4 +264,8 @@ export default defineSchema({
         internalNote: v.optional(v.string()),
         lastContactedAt: v.optional(v.number()),
     }),
+    newsletterSubscribers: defineTable({
+        email: v.string(),
+        subscribedAt: v.number(),
+    }),
 });

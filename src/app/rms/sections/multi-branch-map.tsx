@@ -1,7 +1,10 @@
+"use client";
+import FloorPlanModal from "@/components/modals/floor-plan-modal";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 const MultiBranchMap = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const branches = [
         {
             id: 1,
@@ -129,226 +132,235 @@ const MultiBranchMap = () => {
     ];
 
     return (
-        <section id="branches" className="bg-[#F8F8F8] py-24 px-6">
-            <div className="max-w-7xl mx-auto">
-                {/* Section Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    {/* Eyebrow */}
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F7C74B]/15 border border-[#F7C74B]/30 mb-6">
-                        <span className="w-2 h-2 rounded-full bg-[#F7C74B]"></span>
-                        <span className="text-[#0B0D13] text-sm font-medium">
-                            Multi-Branch Control
-                        </span>
+        <>
+            <FloorPlanModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+            />
+            <section id="branches" className="bg-[#F8F8F8] py-24 px-6">
+                <div className="max-w-7xl mx-auto">
+                    {/* Section Header */}
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        {/* Eyebrow */}
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F7C74B]/15 border border-[#F7C74B]/30 mb-6">
+                            <span className="w-2 h-2 rounded-full bg-[#F7C74B]"></span>
+                            <span className="text-[#0B0D13] text-sm font-medium">
+                                Multi-Branch Control
+                            </span>
+                        </div>
+
+                        <h2 className="text-4xl md:text-5xl font-bold text-[#0B0D13] leading-tight mb-6">
+                            One Dashboard,
+                            <span
+                                className="bg-clip-text text-transparent ml-3"
+                                style={{
+                                    backgroundImage:
+                                        "linear-gradient(107.38deg, #D4A84B 26.16%, #F7C74B 73.84%)",
+                                }}
+                            >
+                                Every Location
+                            </span>
+                        </h2>
+
+                        <p className="text-lg text-[#64748B] leading-relaxed">
+                            Whether you have 2 branches or 20, manage them all
+                            from a single command center. Switch views instantly
+                            and keep your finger on the pulse of every location.
+                        </p>
                     </div>
 
-                    <h2 className="text-4xl md:text-5xl font-bold text-[#0B0D13] leading-tight mb-6">
-                        One Dashboard,
-                        <span
-                            className="bg-clip-text text-transparent ml-3"
-                            style={{
-                                backgroundImage:
-                                    "linear-gradient(107.38deg, #D4A84B 26.16%, #F7C74B 73.84%)",
-                            }}
-                        >
-                            Every Location
-                        </span>
-                    </h2>
-
-                    <p className="text-lg text-[#64748B] leading-relaxed">
-                        Whether you have 2 branches or 20, manage them all from
-                        a single command center. Switch views instantly and keep
-                        your finger on the pulse of every location.
-                    </p>
-                </div>
-
-                {/* Main Content */}
-                <div className="grid lg:grid-cols-3 gap-8">
-                    {/* Left: Branch Selector Panel */}
-                    <div className="lg:col-span-1 space-y-4">
-                        <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                            <div className="flex items-center justify-between mb-6">
-                                <h3 className="text-lg font-semibold text-[#0B0D13]">
-                                    Your Branches
-                                </h3>
-                                <button
-                                    className="w-8 h-8 rounded-[0.625rem] flex items-center justify-center"
-                                    style={{
-                                        background:
-                                            "linear-gradient(107.38deg, #F3F1CF 26.16%, #EDC675 73.84%)",
-                                    }}
-                                >
-                                    <svg
-                                        className="w-4 h-4 text-[#0B0D13]"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
+                    {/* Main Content */}
+                    <div className="grid lg:grid-cols-3 gap-8">
+                        {/* Left: Branch Selector Panel */}
+                        <div className="lg:col-span-1 space-y-4">
+                            <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+                                <div className="flex items-center justify-between mb-6">
+                                    <h3 className="text-lg font-semibold text-[#0B0D13]">
+                                        Your Branches
+                                    </h3>
+                                    <button
+                                        className="w-8 h-8 rounded-[0.625rem] flex items-center justify-center"
+                                        style={{
+                                            background:
+                                                "linear-gradient(107.38deg, #F3F1CF 26.16%, #EDC675 73.84%)",
+                                        }}
                                     >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M12 4v16m8-8H4"
-                                        />
-                                    </svg>
-                                </button>
-                            </div>
+                                        <svg
+                                            className="w-4 h-4 text-[#0B0D13]"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={2}
+                                                d="M12 4v16m8-8H4"
+                                            />
+                                        </svg>
+                                    </button>
+                                </div>
 
-                            <div className="space-y-3">
-                                {branches.map(branch => (
-                                    <div
-                                        key={branch.id}
-                                        className={`p-4 rounded-[0.625rem] cursor-pointer transition-all ${
-                                            branch.active
-                                                ? "bg-[#F7C74B]/15 border-2 border-[#F7C74B]"
-                                                : "bg-gray-50 border-2 border-transparent hover:border-gray-200"
-                                        }`}
-                                    >
-                                        <div className="flex items-start justify-between mb-2">
-                                            <div>
-                                                <h4
-                                                    className={`font-semibold ${branch.active ? "text-[#0B0D13]" : "text-[#64748B]"}`}
-                                                >
-                                                    {branch.name}
-                                                </h4>
-                                                <p className="text-sm text-[#64748B]">
-                                                    {branch.location}
-                                                </p>
-                                            </div>
-                                            <span
-                                                className={`flex items-center gap-1.5 px-2 py-1 rounded-full text-xs font-medium ${
-                                                    branch.status === "online"
-                                                        ? "bg-green-100 text-green-700"
-                                                        : "bg-red-100 text-red-700"
-                                                }`}
-                                            >
+                                <div className="space-y-3">
+                                    {branches.map(branch => (
+                                        <div
+                                            key={branch.id}
+                                            className={`p-4 rounded-[0.625rem] cursor-pointer transition-all ${
+                                                branch.active
+                                                    ? "bg-[#F7C74B]/15 border-2 border-[#F7C74B]"
+                                                    : "bg-gray-50 border-2 border-transparent hover:border-gray-200"
+                                            }`}
+                                        >
+                                            <div className="flex items-start justify-between mb-2">
+                                                <div>
+                                                    <h4
+                                                        className={`font-semibold ${branch.active ? "text-[#0B0D13]" : "text-[#64748B]"}`}
+                                                    >
+                                                        {branch.name}
+                                                    </h4>
+                                                    <p className="text-sm text-[#64748B]">
+                                                        {branch.location}
+                                                    </p>
+                                                </div>
                                                 <span
-                                                    className={`w-1.5 h-1.5 rounded-full ${
+                                                    className={`flex items-center gap-1.5 px-2 py-1 rounded-full text-xs font-medium ${
                                                         branch.status ===
                                                         "online"
-                                                            ? "bg-green-500"
-                                                            : "bg-red-500"
+                                                            ? "bg-green-100 text-green-700"
+                                                            : "bg-red-100 text-red-700"
                                                     }`}
-                                                ></span>
-                                                {branch.status === "online"
-                                                    ? "Online"
-                                                    : "Offline"}
-                                            </span>
-                                        </div>
-
-                                        {branch.status === "online" && (
-                                            <div className="grid grid-cols-3 gap-2 mt-3 pt-3 border-t border-gray-100">
-                                                <div>
-                                                    <p className="text-xs text-[#64748B]">
-                                                        Orders
-                                                    </p>
-                                                    <p
-                                                        className={`font-semibold ${branch.active ? "text-[#0B0D13]" : "text-[#64748B]"}`}
-                                                    >
-                                                        {branch.orders}
-                                                    </p>
-                                                </div>
-                                                <div>
-                                                    <p className="text-xs text-[#64748B]">
-                                                        Tables
-                                                    </p>
-                                                    <p
-                                                        className={`font-semibold ${branch.active ? "text-[#0B0D13]" : "text-[#64748B]"}`}
-                                                    >
-                                                        {branch.tables}
-                                                    </p>
-                                                </div>
-                                                <div>
-                                                    <p className="text-xs text-[#64748B]">
-                                                        Revenue
-                                                    </p>
-                                                    <p
-                                                        className="font-semibold text-sm bg-clip-text text-transparent"
-                                                        style={{
-                                                            backgroundImage:
-                                                                branch.active
-                                                                    ? "linear-gradient(107.38deg, #D4A84B 26.16%, #F7C74B 73.84%)"
-                                                                    : "none",
-                                                            color: branch.active
-                                                                ? "transparent"
-                                                                : "#64748B",
-                                                        }}
-                                                    >
-                                                        {branch.revenue}
-                                                    </p>
-                                                </div>
+                                                >
+                                                    <span
+                                                        className={`w-1.5 h-1.5 rounded-full ${
+                                                            branch.status ===
+                                                            "online"
+                                                                ? "bg-green-500"
+                                                                : "bg-red-500"
+                                                        }`}
+                                                    ></span>
+                                                    {branch.status === "online"
+                                                        ? "Online"
+                                                        : "Offline"}
+                                                </span>
                                             </div>
-                                        )}
-                                    </div>
-                                ))}
-                            </div>
 
-                            {/* Aggregate Stats */}
-                            <div className="mt-6 pt-6 border-t border-gray-100">
-                                <div className="flex items-center justify-between mb-4">
-                                    <span className="text-sm text-[#64748B]">
-                                        All Branches Today
-                                    </span>
-                                    <span className="text-xs px-2 py-1 rounded-full bg-[#F7C74B]/15 text-[#0B0D13] font-medium">
-                                        3/4 Online
-                                    </span>
+                                            {branch.status === "online" && (
+                                                <div className="grid grid-cols-3 gap-2 mt-3 pt-3 border-t border-gray-100">
+                                                    <div>
+                                                        <p className="text-xs text-[#64748B]">
+                                                            Orders
+                                                        </p>
+                                                        <p
+                                                            className={`font-semibold ${branch.active ? "text-[#0B0D13]" : "text-[#64748B]"}`}
+                                                        >
+                                                            {branch.orders}
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="text-xs text-[#64748B]">
+                                                            Tables
+                                                        </p>
+                                                        <p
+                                                            className={`font-semibold ${branch.active ? "text-[#0B0D13]" : "text-[#64748B]"}`}
+                                                        >
+                                                            {branch.tables}
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="text-xs text-[#64748B]">
+                                                            Revenue
+                                                        </p>
+                                                        <p
+                                                            className="font-semibold text-sm bg-clip-text text-transparent"
+                                                            style={{
+                                                                backgroundImage:
+                                                                    branch.active
+                                                                        ? "linear-gradient(107.38deg, #D4A84B 26.16%, #F7C74B 73.84%)"
+                                                                        : "none",
+                                                                color: branch.active
+                                                                    ? "transparent"
+                                                                    : "#64748B",
+                                                            }}
+                                                        >
+                                                            {branch.revenue}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </div>
+                                    ))}
                                 </div>
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="bg-gray-50 rounded-[0.625rem] p-3 text-center">
-                                        <p
-                                            className="text-xl font-bold bg-clip-text text-transparent"
-                                            style={{
-                                                backgroundImage:
-                                                    "linear-gradient(107.38deg, #D4A84B 26.16%, #F7C74B 73.84%)",
-                                            }}
-                                        >
-                                            ₦639,500
-                                        </p>
-                                        <p className="text-xs text-[#64748B]">
-                                            Total Revenue
-                                        </p>
+
+                                {/* Aggregate Stats */}
+                                <div className="mt-6 pt-6 border-t border-gray-100">
+                                    <div className="flex items-center justify-between mb-4">
+                                        <span className="text-sm text-[#64748B]">
+                                            All Branches Today
+                                        </span>
+                                        <span className="text-xs px-2 py-1 rounded-full bg-[#F7C74B]/15 text-[#0B0D13] font-medium">
+                                            3/4 Online
+                                        </span>
                                     </div>
-                                    <div className="bg-gray-50 rounded-[0.625rem] p-3 text-center">
-                                        <p
-                                            className="text-xl font-bold bg-clip-text text-transparent"
-                                            style={{
-                                                backgroundImage:
-                                                    "linear-gradient(107.38deg, #D4A84B 26.16%, #F7C74B 73.84%)",
-                                            }}
-                                        >
-                                            84
-                                        </p>
-                                        <p className="text-xs text-[#64748B]">
-                                            Total Orders
-                                        </p>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div className="bg-gray-50 rounded-[0.625rem] p-3 text-center">
+                                            <p
+                                                className="text-xl font-bold bg-clip-text text-transparent"
+                                                style={{
+                                                    backgroundImage:
+                                                        "linear-gradient(107.38deg, #D4A84B 26.16%, #F7C74B 73.84%)",
+                                                }}
+                                            >
+                                                ₦639,500
+                                            </p>
+                                            <p className="text-xs text-[#64748B]">
+                                                Total Revenue
+                                            </p>
+                                        </div>
+                                        <div className="bg-gray-50 rounded-[0.625rem] p-3 text-center">
+                                            <p
+                                                className="text-xl font-bold bg-clip-text text-transparent"
+                                                style={{
+                                                    backgroundImage:
+                                                        "linear-gradient(107.38deg, #D4A84B 26.16%, #F7C74B 73.84%)",
+                                                }}
+                                            >
+                                                84
+                                            </p>
+                                            <p className="text-xs text-[#64748B]">
+                                                Total Orders
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    {/* Right: Map Screenshot + Features */}
-                    <div className="lg:col-span-2 space-y-6">
-                        {/* Map/Branch View Screenshot */}
-                        <div className="bg-[#0B0D13] rounded-2xl p-2 shadow-2xl">
-                            {/* Browser Top Bar */}
-                            <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
-                                <div className="flex items-center gap-2">
-                                    <div className="flex gap-2">
-                                        <span className="w-3 h-3 rounded-full bg-[#FF5F57]"></span>
-                                        <span className="w-3 h-3 rounded-full bg-[#FFBD2E]"></span>
-                                        <span className="w-3 h-3 rounded-full bg-[#28CA41]"></span>
+                        {/* Right: Map Screenshot + Features */}
+                        <div className="lg:col-span-2 space-y-6">
+                            {/* Map/Branch View Screenshot */}
+                            <div className="bg-[#0B0D13] rounded-2xl p-2 shadow-2xl">
+                                {/* Browser Top Bar */}
+                                <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
+                                    <div className="flex items-center gap-2">
+                                        <div className="flex gap-2">
+                                            <span className="w-3 h-3 rounded-full bg-[#FF5F57]"></span>
+                                            <span className="w-3 h-3 rounded-full bg-[#FFBD2E]"></span>
+                                            <span className="w-3 h-3 rounded-full bg-[#28CA41]"></span>
+                                        </div>
+                                        <div className="ml-4 flex items-center gap-2">
+                                            <span className="text-white/50 text-sm">
+                                                rms.lzjesoleen.com/branches
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div className="ml-4 flex items-center gap-2">
-                                        <span className="text-white/50 text-sm">
-                                            app.lzj-rms.com/branches
-                                        </span>
-                                    </div>
-                                </div>
 
-                                {/* Branch Tabs in Browser */}
-                                <div className="hidden md:flex items-center gap-1">
-                                    {["Victoria Island", "Ikeja", "Wuse"].map(
-                                        (tab, i) => (
+                                    {/* Branch Tabs in Browser */}
+                                    <div className="hidden md:flex items-center gap-1">
+                                        {[
+                                            "Victoria Island",
+                                            "Ikeja",
+                                            "Wuse",
+                                        ].map((tab, i) => (
                                             <span
                                                 key={tab}
                                                 className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
@@ -359,22 +371,21 @@ const MultiBranchMap = () => {
                                             >
                                                 {tab}
                                             </span>
-                                        ),
-                                    )}
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
 
-                            {/* Screenshot Placeholder */}
-                            <div className="bg-slate-200 aspect-video flex items-center justify-center rounded-b-xl relative">
-                                <Image
-                                    src={
-                                        "/assets/images/rms/multi-branch-map.png"
-                                    }
-                                    alt="Multi-Branch Map Screenshot"
-                                    fill
-                                    className="rounded-b-xl object-cover"
-                                />
-                                {/* <div className="text-center">
+                                {/* Screenshot Placeholder */}
+                                <div className="bg-slate-200 aspect-video flex items-center justify-center rounded-b-xl relative">
+                                    <Image
+                                        src={
+                                            "/assets/images/rms/multi-branch-map.png"
+                                        }
+                                        alt="Multi-Branch Map Screenshot"
+                                        fill
+                                        className="rounded-b-xl object-contain"
+                                    />
+                                    {/* <div className="text-center">
                                     <div className="w-20 h-20 mx-auto mb-4 rounded-[0.625rem] bg-[#0B0D13]/10 flex items-center justify-center">
                                         <svg
                                             className="w-10 h-10 text-[#64748B]"
@@ -398,80 +409,84 @@ const MultiBranchMap = () => {
                                         & quick stats
                                     </p>
                                 </div> */}
+                                </div>
                             </div>
-                        </div>
 
-                        {/* Feature Grid */}
-                        <div className="grid sm:grid-cols-2 gap-4">
-                            {branchFeatures.map(feature => (
-                                <div
-                                    key={feature.title}
-                                    className="bg-white rounded-[0.625rem] p-5 shadow-md border border-gray-100 hover:border-[#F7C74B]/30 transition-colors"
-                                >
+                            {/* Feature Grid */}
+                            <div className="grid sm:grid-cols-2 gap-4">
+                                {branchFeatures.map(feature => (
                                     <div
-                                        className="w-12 h-12 rounded-[0.625rem] flex items-center justify-center mb-4"
+                                        key={feature.title}
+                                        className="bg-white rounded-[0.625rem] p-5 shadow-md border border-gray-100 hover:border-[#F7C74B]/30 transition-colors"
+                                    >
+                                        <div
+                                            className="w-12 h-12 rounded-[0.625rem] flex items-center justify-center mb-4"
+                                            style={{
+                                                background:
+                                                    "linear-gradient(107.38deg, #F3F1CF 26.16%, #EDC675 73.84%)",
+                                            }}
+                                        >
+                                            <span className="text-[#0B0D13]">
+                                                {feature.icon}
+                                            </span>
+                                        </div>
+                                        <h4 className="font-semibold text-[#0B0D13] mb-2">
+                                            {feature.title}
+                                        </h4>
+                                        <p className="text-[#64748B] text-sm leading-relaxed">
+                                            {feature.description}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Floor Plan Teaser */}
+                            <div className="bg-[#0B0D13] rounded-2xl p-6 flex flex-col md:flex-row items-center gap-6">
+                                <div className="shrink-0">
+                                    <div
+                                        className="w-16 h-16 rounded-[0.625rem] flex items-center justify-center"
                                         style={{
                                             background:
                                                 "linear-gradient(107.38deg, #F3F1CF 26.16%, #EDC675 73.84%)",
                                         }}
                                     >
-                                        <span className="text-[#0B0D13]">
-                                            {feature.icon}
-                                        </span>
+                                        <svg
+                                            className="w-8 h-8 text-[#0B0D13]"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={1.5}
+                                                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+                                            />
+                                        </svg>
                                     </div>
-                                    <h4 className="font-semibold text-[#0B0D13] mb-2">
-                                        {feature.title}
+                                </div>
+                                <div className="flex-1 text-center md:text-left">
+                                    <h4 className="text-[#F8F8F8] font-semibold text-lg mb-1">
+                                        Table & Floor Plan Mapping
                                     </h4>
-                                    <p className="text-[#64748B] text-sm leading-relaxed">
-                                        {feature.description}
+                                    <p className="text-[#64748B] text-sm">
+                                        Each branch includes visual
+                                        coordinate-based table management. Drag,
+                                        drop, and design your floor layout.
                                     </p>
                                 </div>
-                            ))}
-                        </div>
-
-                        {/* Floor Plan Teaser */}
-                        <div className="bg-[#0B0D13] rounded-2xl p-6 flex flex-col md:flex-row items-center gap-6">
-                            <div className="shrink-0">
-                                <div
-                                    className="w-16 h-16 rounded-[0.625rem] flex items-center justify-center"
-                                    style={{
-                                        background:
-                                            "linear-gradient(107.38deg, #F3F1CF 26.16%, #EDC675 73.84%)",
-                                    }}
+                                <button
+                                    onClick={() => setIsModalOpen(true)}
+                                    className="px-5 py-2.5 rounded-[0.625rem] border-2 border-[#F7C74B] text-[#F7C74B] font-medium hover:bg-[#F7C74B]/10 transition-colors whitespace-nowrap cursor-pointer"
                                 >
-                                    <svg
-                                        className="w-8 h-8 text-[#0B0D13]"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={1.5}
-                                            d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
-                                        />
-                                    </svg>
-                                </div>
+                                    Learn More
+                                </button>
                             </div>
-                            <div className="flex-1 text-center md:text-left">
-                                <h4 className="text-[#F8F8F8] font-semibold text-lg mb-1">
-                                    Table & Floor Plan Mapping
-                                </h4>
-                                <p className="text-[#64748B] text-sm">
-                                    Each branch includes visual coordinate-based
-                                    table management. Drag, drop, and design
-                                    your floor layout.
-                                </p>
-                            </div>
-                            <button className="px-5 py-2.5 rounded-[0.625rem] border-2 border-[#F7C74B] text-[#F7C74B] font-medium hover:bg-[#F7C74B]/10 transition-colors whitespace-nowrap">
-                                Learn More
-                            </button>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 };
 

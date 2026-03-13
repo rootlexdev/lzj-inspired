@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const AnalyticsReports = () => {
@@ -159,7 +160,7 @@ const AnalyticsReports = () => {
                 </div>
 
                 {/* Live Metrics Bar */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
                     {metrics.map(metric => (
                         <div
                             key={metric.label}
@@ -280,7 +281,7 @@ const AnalyticsReports = () => {
                                     }
                                     alt="Dashboard Overview Screenshot"
                                     fill
-                                    className="rounded-b-xl object-cover"
+                                    className="rounded-b-xl object-contain"
                                 />
                                 {/* <div className="text-center">
                                     <div className="w-16 h-16 mx-auto mb-4 rounded-[0.625rem] bg-[#0B0D13]/10 flex items-center justify-center">
@@ -408,7 +409,8 @@ const AnalyticsReports = () => {
                                 from a real restaurant.
                             </p>
                         </div>
-                        <button
+                        <Link
+                            href={"/get-started"}
                             className="px-6 py-3 rounded-[0.625rem] text-[#0B0D13] font-semibold whitespace-nowrap"
                             style={{
                                 padding: "0.75rem 1.5rem",
@@ -417,7 +419,7 @@ const AnalyticsReports = () => {
                             }}
                         >
                             Schedule Demo
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>

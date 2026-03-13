@@ -51,7 +51,7 @@ const Navbar = () => {
                 <div className="flex items-center gap-4">
                     {/* Login Button - Outline Style */}
                     <Link
-                        className="px-6 py-3 rounded-[0.625rem] border-2 border-[#F7C74B] text-[#0B0D13] font-semibold hover:bg-[#F7C74B]/10 transition-colors cursor-pointer"
+                        className="px-6 py-3 rounded-[0.625rem] border-2 border-[#F7C74B] text-[#0B0D13] font-semibold hover:bg-[#F7C74B]/10 transition-colors cursor-pointer hidden md:inline-flex"
                         style={{ padding: "0.75rem 1.5rem" }}
                         href={"https://rms.lzjesoleen.com"}
                         target="_blank"

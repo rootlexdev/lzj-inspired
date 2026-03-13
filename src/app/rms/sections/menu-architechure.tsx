@@ -183,7 +183,7 @@ const MenuArchitect = () => {
                         </div>
 
                         {/* Peppered Gizzard Item Card */}
-                        <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 w-[70%] mx-auto">
+                        <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 w-full md:w-[70%] mx-auto">
                             <div className="flex items-center justify-between mb-4">
                                 <h3 className="text-lg font-semibold text-[#0B0D13]">
                                     Item Details
@@ -212,12 +212,12 @@ const MenuArchitect = () => {
                                 {/* Item Info */}
                                 <div className="flex-1">
                                     <h4 className="text-xl font-bold text-[#0B0D13] mb-1">
-                                        Peppered Gizzard
+                                        Smokey Jollof Rice
                                     </h4>
                                     <p className="text-[#64748B] text-sm mb-3">
-                                        Succulent gizzards tossed in our
-                                        signature spicy pepper sauce with onions
-                                        and bell peppers.
+                                        A rich blend of tomatoes, peppers, and
+                                        secret spices, slow-cooked to
+                                        perfection.
                                     </p>
                                     <div className="flex items-center gap-4">
                                         <span
@@ -227,7 +227,7 @@ const MenuArchitect = () => {
                                                     "linear-gradient(107.38deg, #D4A84B 26.16%, #F7C74B 73.84%)",
                                             }}
                                         >
-                                            ₦2,500
+                                            ₦5,500
                                         </span>
                                         <div className="flex gap-2">
                                             <span className="px-2 py-1 rounded bg-red-100 text-red-700 text-xs font-medium">
@@ -273,7 +273,7 @@ const MenuArchitect = () => {
                                 <div className="flex-1 mx-4">
                                     <div className="bg-white/10 rounded-md py-1.5 px-4 text-center">
                                         <span className="text-white/50 text-sm">
-                                            app.lzj-rms.com/menu/architect
+                                            rms.lzjesoleen.com/menu
                                         </span>
                                     </div>
                                 </div>
@@ -285,7 +285,7 @@ const MenuArchitect = () => {
                                     src="/assets/images/rms/kitchen-display.png"
                                     alt="Menu Architect Screenshot"
                                     fill
-                                    className="object-cover rounded-b-xl"
+                                    className="object-contain rounded-b-xl"
                                 />
                                 {/* <div className="text-center">
                                     <div className="w-16 h-16 mx-auto mb-4 rounded-[0.625rem] bg-[#0B0D13]/10 flex items-center justify-center">
@@ -315,7 +315,7 @@ const MenuArchitect = () => {
                         </div>
 
                         {/* Feature Grid */}
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {menuFeatures.map(feature => (
                                 <div
                                     key={feature.title}

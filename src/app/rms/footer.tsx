@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const CTAFooter = () => {
@@ -7,14 +9,14 @@ const CTAFooter = () => {
             { name: "Live Flow", href: "#live-flow" },
             { name: "Analytics", href: "#analytics" },
             { name: "Multi-Branch", href: "#branches" },
-            { name: "Pricing", href: "#pricing" },
+            // { name: "Pricing", href: "#pricing" },
         ],
         company: [
-            { name: "About Us", href: "#" },
-            { name: "Careers", href: "#" },
-            { name: "Blog", href: "#" },
-            { name: "Press Kit", href: "#" },
-            { name: "Contact", href: "#" },
+            { name: "Solutions", href: "/solutions" },
+            // { name: "Careers", href: "#" },
+            // { name: "Blog", href: "#" },
+            // { name: "Press Kit", href: "#" },
+            { name: "Contact", href: "/contact" },
         ],
         resources: [
             { name: "Documentation", href: "#" },
@@ -24,43 +26,31 @@ const CTAFooter = () => {
             { name: "Community", href: "#" },
         ],
         legal: [
-            { name: "Privacy Policy", href: "#" },
-            { name: "Terms of Service", href: "#" },
-            { name: "Cookie Policy", href: "#" },
-            { name: "GDPR", href: "#" },
+            { name: "Privacy Policy", href: "/privacy-policy" },
+            { name: "Terms of Service", href: "/terms-service" },
+            // { name: "Cookie Policy", href: "#" },
+            // { name: "GDPR", href: "#" },
         ],
     };
 
     const socialLinks = [
         {
-            name: "Twitter",
-            href: "#",
+            name: "Tiktok",
+            href: "https://www.tiktok.com/@lzjesoleen",
             icon: (
                 <svg
                     className="w-5 h-5"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                 >
-                    <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-                </svg>
-            ),
-        },
-        {
-            name: "LinkedIn",
-            href: "#",
-            icon: (
-                <svg
-                    className="w-5 h-5"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                >
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    {/* Corrected TikTok Path */}
+                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.1-3.44-3.37-3.42-5.72-.03-1.93.94-3.83 2.51-4.94 1.39-1.02 3.16-1.48 4.88-1.28.02 1.39-.01 2.78.01 4.17-.64-.13-1.33-.11-1.92.16-1.09.43-1.83 1.57-1.78 2.72-.01.73.28 1.45.81 1.94.59.56 1.4.82 2.21.76 1.02-.03 1.95-.74 2.25-1.72.13-.39.15-.81.15-1.22l.01-14.28z" />
                 </svg>
             ),
         },
         {
             name: "Instagram",
-            href: "#",
+            href: "https://www.instagram.com/lzjesoleen/",
             icon: (
                 <svg
                     className="w-5 h-5"
@@ -73,7 +63,7 @@ const CTAFooter = () => {
         },
         {
             name: "YouTube",
-            href: "#",
+            href: "https://www.youtube.com/@LZJESOLEENLTD",
             icon: (
                 <svg
                     className="w-5 h-5"
@@ -140,7 +130,8 @@ const CTAFooter = () => {
 
                         {/* CTA Buttons */}
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-                            <button
+                            <Link
+                                href="/get-started"
                                 className="px-8 py-4 rounded-[0.625rem] text-[#0B0D13] font-semibold text-lg hover:opacity-90 transition-opacity"
                                 style={{
                                     padding: "1rem 2rem",
@@ -149,8 +140,9 @@ const CTAFooter = () => {
                                 }}
                             >
                                 Request a Free Demo
-                            </button>
-                            <button
+                            </Link>
+                            <Link
+                                href={"/contact"}
                                 className="px-8 py-4 rounded-[0.625rem] border-2 border-[#F7C74B] text-[#F7C74B] font-semibold text-lg hover:bg-[#F7C74B]/10 transition-colors flex items-center gap-2"
                                 style={{ padding: "1rem 2rem" }}
                             >
@@ -168,27 +160,11 @@ const CTAFooter = () => {
                                     />
                                 </svg>
                                 Talk to Sales
-                            </button>
+                            </Link>
                         </div>
 
                         {/* Trust Badges */}
                         <div className="flex flex-wrap items-center justify-center gap-8">
-                            <div className="flex items-center gap-2 text-[#64748B]">
-                                <svg
-                                    className="w-5 h-5 text-green-400"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                >
-                                    <path
-                                        fillRule="evenodd"
-                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                        clipRule="evenodd"
-                                    />
-                                </svg>
-                                <span className="text-sm">
-                                    Free 14-day trial
-                                </span>
-                            </div>
                             <div className="flex items-center gap-2 text-[#64748B]">
                                 <svg
                                     className="w-5 h-5 text-green-400"
@@ -228,15 +204,17 @@ const CTAFooter = () => {
             <footer className="bg-[#0B0D13] border-t border-white/10 pt-16 pb-8 px-6">
                 <div className="max-w-7xl mx-auto">
                     {/* Footer Top */}
-                    <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">
+                    <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
                         {/* Brand Column */}
                         <div className="col-span-2">
                             <div className="flex items-center gap-2 mb-4">
-                                <div className="w-10 h-10 rounded-[0.625rem] bg-[#F7C74B] flex items-center justify-center">
-                                    <span className="text-[#0B0D13] font-bold text-lg">
-                                        LZJ
-                                    </span>
-                                </div>
+                                <Image
+                                    src={"/assets/images/gold-logo.svg"}
+                                    alt="LZJ Logo"
+                                    width={32}
+                                    height={32}
+                                    className="mr-1"
+                                />
                                 <span className="text-[#F8F8F8] font-semibold text-xl">
                                     RMS
                                 </span>
@@ -246,21 +224,24 @@ const CTAFooter = () => {
                                 for modern multi-branch operations.
                             </p>
                             {/* Social Links */}
-                            <div className="flex items-center gap-3">
+                            <div className="flex items-center gap-3 ">
                                 {socialLinks.map(social => (
-                                    <a
+                                    <Link
                                         key={social.name}
                                         href={social.href}
                                         className="w-10 h-10 rounded-[0.625rem] bg-white/5 flex items-center justify-center text-[#64748B] hover:bg-[#F7C74B]/20 hover:text-[#F7C74B] transition-colors"
                                         aria-label={social.name}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                     >
                                         {social.icon}
-                                    </a>
+                                    </Link>
                                 ))}
                             </div>
                         </div>
 
                         {/* Product Links */}
+                        {/* <div className="flex gap-4 justify-end  bg-red-50"> */}
                         <div>
                             <h4 className="text-[#F8F8F8] font-semibold mb-4">
                                 Product
@@ -299,7 +280,7 @@ const CTAFooter = () => {
                         </div>
 
                         {/* Resources Links */}
-                        <div>
+                        {/* <div>
                             <h4 className="text-[#F8F8F8] font-semibold mb-4">
                                 Resources
                             </h4>
@@ -315,7 +296,7 @@ const CTAFooter = () => {
                                     </li>
                                 ))}
                             </ul>
-                        </div>
+                        </div> */}
 
                         {/* Legal Links */}
                         <div>
@@ -325,34 +306,30 @@ const CTAFooter = () => {
                             <ul className="space-y-3">
                                 {footerLinks.legal.map(link => (
                                     <li key={link.name}>
-                                        <a
+                                        <Link
                                             href={link.href}
                                             className="text-[#64748B] text-sm hover:text-[#F7C74B] transition-colors"
                                         >
                                             {link.name}
-                                        </a>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
                         </div>
+                        {/* </div> */}
                     </div>
 
                     {/* Footer Bottom */}
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                         <p className="text-[#64748B] text-sm">
-                            © 2026 LZJ RMS. All rights reserved.
+                            © {new Date().getFullYear()} LZJ RMS. All rights
+                            reserved.
                         </p>
                         <div className="flex items-center gap-6">
                             <span className="text-[#64748B] text-sm flex items-center gap-2">
                                 <span className="w-2 h-2 rounded-full bg-green-400"></span>
                                 All systems operational
                             </span>
-                            <a
-                                href="#"
-                                className="text-[#64748B] text-sm hover:text-[#F7C74B] transition-colors"
-                            >
-                                Sitemap
-                            </a>
                         </div>
                     </div>
                 </div>

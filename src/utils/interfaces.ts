@@ -2,6 +2,7 @@ export interface NavLinkProps {
     text: string;
     url: string;
     hasDropdown: boolean;
+    sameTab?: boolean;
 }
 
 export interface ProblemsProps {

@@ -13,8 +13,14 @@ export const MenuLinks: NavLinkProps[] = [
     },
     {
         hasDropdown: false,
-        text: "Restaurant Management System",
+        text: "LZJ RMS",
         url: "/rms",
+    },
+    {
+        hasDropdown: false,
+        text: "Affiliate Program",
+        url: "https://affiliate.lzjesoleen.com",
+        sameTab: false,
     },
 ];
 

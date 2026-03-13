@@ -8,9 +8,10 @@ interface Props {
     active: boolean;
     url: string;
     hasDropdown: boolean;
+    sameTab?: boolean;
 }
 
-const Navlink = ({ active, text, url, hasDropdown }: Props) => {
+const Navlink = ({ active, text, url, hasDropdown, sameTab }: Props) => {
     return (
         <Link
             href={url}
@@ -18,8 +19,9 @@ const Navlink = ({ active, text, url, hasDropdown }: Props) => {
                 "font-satoshi font-normal px-2 py-4 text-body-text transition flex items-center gap-x-1",
                 active
                     ? "bg-mint-green font-medium text-green"
-                    : "font-normal bg-transparent"
+                    : "font-normal bg-transparent",
             )}
+            target={sameTab ? "_self" : "_blank"}
         >
             {text}
             {hasDropdown ? <ChevronDown /> : null}

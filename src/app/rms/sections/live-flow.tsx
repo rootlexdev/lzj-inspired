@@ -173,7 +173,7 @@ const LiveFlow = () => {
                                             <div className="flex-1 mx-2">
                                                 <div className="bg-white/5 rounded py-1 px-3 text-center">
                                                     <span className="text-white/30 text-xs">
-                                                        lzj-rms.com
+                                                        rms.lzjesoleen.com
                                                     </span>
                                                 </div>
                                             </div>
@@ -185,7 +185,7 @@ const LiveFlow = () => {
                                                 src={item.screenshotImg}
                                                 alt={item.screenshotLabel}
                                                 fill
-                                                className="object-cover rounded-b-xl"
+                                                className="object-contain rounded-b-xl w-full"
                                             />
                                             {/* <div className="text-center p-4">
                                                 <div className="w-12 h-12 mx-auto mb-3 rounded-[0.625rem] bg-[#0B0D13]/10 flex items-center justify-center">

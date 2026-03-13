@@ -44,6 +44,7 @@ import type * as lib_internalMuts from "../lib/internalMuts.js";
 import type * as lib_templates from "../lib/templates.js";
 import type * as public_client from "../public/client.js";
 import type * as public_contact from "../public/contact.js";
+import type * as public_newsletters from "../public/newsletters.js";
 import type * as staff_auth from "../staff/auth.js";
 import type * as staff_submissions from "../staff/submissions.js";
 import type * as unions from "../unions.js";
@@ -97,6 +98,7 @@ declare const fullApi: ApiFromModules<{
   "lib/templates": typeof lib_templates;
   "public/client": typeof public_client;
   "public/contact": typeof public_contact;
+  "public/newsletters": typeof public_newsletters;
   "staff/auth": typeof staff_auth;
   "staff/submissions": typeof staff_submissions;
   unions: typeof unions;

@@ -1,16 +1,64 @@
+"use client";
+import SuccessModal from "@/components/modals/success-modal";
 import { Button } from "@/components/ui/button";
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { useSubscribeNewsletter } from "@/lib/features/public/use-subscribe-newsletter";
+import { useSuccessModal } from "@/lib/stores/modals";
+import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import Link from "next/link";
-import {
-    BsFacebook,
-    BsInstagram,
-    BsLinkedin,
-    BsTwitterX,
-} from "react-icons/bs";
+import { useForm } from "react-hook-form";
+import { BsInstagram, BsTiktok, BsYoutube } from "react-icons/bs";
+import { toast } from "sonner";
+import z from "zod";
+
+const newsletterSchema = z.object({
+    email: z.email("Please enter a valid email address"),
+});
+
+type NewsletterFormValues = z.infer<typeof newsletterSchema>;
 
 const Footer = () => {
+    const [, setOpen] = useSuccessModal();
+    const currentYear = new Date().getFullYear();
+    const { mutate: subscribe, isPending } = useSubscribeNewsletter();
+
+    const form = useForm<NewsletterFormValues>({
+        resolver: zodResolver(newsletterSchema),
+        defaultValues: {
+            email: "",
+        },
+    });
+
+    const handleSubscribe = (data: NewsletterFormValues) => {
+        subscribe(
+            {
+                email: data.email,
+            },
+            {
+                onSuccess() {
+                    form.reset();
+                    toast.success("Subscribed successfully!");
+                    setOpen(true);
+                },
+                onError(error) {
+                    console.log("ERR:", error);
+                    toast.error(`Subscription failed: ${error.message}`);
+                },
+            },
+        );
+    };
+
     return (
         <div>
+            <SuccessModal message="Subscription successful! Thank you for subscribing to our newsletter." />
             <div className="p-[7.5%] lg:flex justify-between items-center">
                 <div className="w-full lg:max-w-[50%] mb-10 lg:mb-0">
                     <h1 className="font-clash-display text-[36px] font-bold mb-10">
@@ -58,13 +106,46 @@ const Footer = () => {
                     </p>
                     {/* ICONS */}
                     <div className="flex justify-center lg:justify-start items-center gap-x-4 text-lg text-body-text mt-10">
-                        <BsFacebook />
-                        <BsLinkedin />
-                        <BsTwitterX />
-                        <BsInstagram />
+                        <Link
+                            href={"https://www.youtube.com/@LZJESOLEENLTD"}
+                            target="_blank"
+                        >
+                            <BsYoutube />
+                        </Link>
+                        {/* <Link
+                            href={"https://www.linkedin.com"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <BsLinkedin />
+                        </Link> */}
+                        <Link
+                            href={"https://www.tiktok.com/@lzjesoleen"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <BsTiktok />
+                        </Link>
+                        <Link
+                            href={"https://www.instagram.com/lzjesoleen/"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <BsInstagram />
+                        </Link>
                     </div>
                 </div>
                 <div className="flex flex-col lg:flex-row justify-between gap-x-20 gap-y-10">
+                    <div className="flex flex-col text-body-text gap-y-4">
+                        <h3 className="text-dark-navy font-semibold">
+                            Solutions
+                        </h3>
+                        <Link href={"/solutions"}>Dashboard & Analytics</Link>
+                        <Link href={"/solutions"}>Worklow & Automation</Link>
+                        <Link href={"/solutions"}>Portals</Link>
+                        <Link href={"/solutions"}>Inventory Systems</Link>
+                        <Link href={"/solutions"}>All Solutions</Link>
+                    </div>
                     <div className="flex flex-col text-body-text gap-y-4">
                         <h3 className="text-dark-navy font-semibold">
                             Company
@@ -76,14 +157,12 @@ const Footer = () => {
                         {/* <Link href={"/faqs"}>FAQs</Link> */}
                     </div>
                     <div className="flex flex-col text-body-text gap-y-4">
-                        <h3 className="text-dark-navy font-semibold">
-                            Solutions
-                        </h3>
-                        <Link href={"/solutions"}>Dashboard & Analytics</Link>
-                        <Link href={"/solutions"}>Worklow & Automation</Link>
-                        <Link href={"/solutions"}>Portals</Link>
-                        <Link href={"/solutions"}>Inventory Systems</Link>
-                        <Link href={"/solutions"}>All Solutions</Link>
+                        <h3 className="text-dark-navy font-semibold">Legal</h3>
+                        <Link href={"/terms-service"}>Terms of Service</Link>
+                        <Link href={"/privacy-policy"}>Privacy Policy</Link>
+                        {/* <Link href={"/careers"}>Contact Us</Link> */}
+                        {/* <Link href={"/blog"}>Blog</Link> */}
+                        {/* <Link href={"/faqs"}>FAQs</Link> */}
                     </div>
                 </div>
             </div>
@@ -99,26 +178,47 @@ const Footer = () => {
                         </p>
                     </div>
                     <div className="flex items-center gap-3 w-full md:w-auto">
-                        <input
-                            type="email"
-                            placeholder="Enter your email"
-                            className="flex-1 md:w-64 px-4 py-3 rounded-[0.625rem] bg-white/5 border border-primary-gold/40 text-[#F8F8F8] placeholder-[#64748B] focus:outline-none focus:border-[#F7C74B]/80 transition-colors"
-                        />
-                        <Button
-                            className="px-6 py-3 rounded-[0.625rem] text-[#0B0D13] font-semibold whitespace-nowrap"
-                            style={{
-                                background:
-                                    "linear-gradient(107.38deg, #F3F1CF 26.16%, #EDC675 73.84%)",
-                            }}
-                        >
-                            Subscribe
-                        </Button>
+                        <Form {...form}>
+                            <form
+                                onSubmit={form.handleSubmit(handleSubscribe)}
+                                className="flex items-center gap-3 w-full md:w-auto"
+                            >
+                                <FormField
+                                    control={form.control}
+                                    name="email"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormControl>
+                                                <Input
+                                                    {...field}
+                                                    type="email"
+                                                    placeholder="Enter your email"
+                                                    className="flex-1 md:w-64 px-4 py-3 rounded-[0.625rem] bg-white/5 border border-primary-gold/40 text-primary placeholder-[#64748B] focus:outline-none focus:border-[#F7C74B]/80 transition-colors"
+                                                    disabled={isPending}
+                                                />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                                <Button
+                                    className="px-6 py-3 rounded-[0.625rem] text-[#0B0D13] font-semibold whitespace-nowrap"
+                                    style={{
+                                        background:
+                                            "linear-gradient(107.38deg, #F3F1CF 26.16%, #EDC675 73.84%)",
+                                    }}
+                                    disabled={isPending}
+                                >
+                                    Subscribe
+                                </Button>
+                            </form>
+                        </Form>
                     </div>
                 </div>
             </div>
             <div className="bg-soft-white p-10 flex justify-center items-center text-slate-grey border-t border-light-grey">
                 <p className="text-center">
-                    © LZJESOLEEN {new Date().getFullYear()}. All rights reserved
+                    © LZJESOLEEN {currentYear}. All rights reserved
                 </p>
             </div>
         </div>
