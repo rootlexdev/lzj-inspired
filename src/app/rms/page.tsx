@@ -4,6 +4,7 @@ import LiveFlow from "./sections/live-flow";
 import MenuArchitect from "./sections/menu-architechure";
 import AnalyticsReports from "./sections/analytics-reports";
 import MultiBranchMap from "./sections/multi-branch-map";
+import Pricing from "./sections/pricing";
 
 const LandingPage = () => {
     return (
@@ -13,6 +14,7 @@ const LandingPage = () => {
             <MenuArchitect />
             <AnalyticsReports />
             <MultiBranchMap />
+            <Pricing />
         </div>
     );
 };

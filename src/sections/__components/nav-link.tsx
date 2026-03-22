@@ -11,7 +11,7 @@ interface Props {
     sameTab?: boolean;
 }
 
-const Navlink = ({ active, text, url, hasDropdown, sameTab }: Props) => {
+const Navlink = ({ active, text, url, hasDropdown, sameTab = true }: Props) => {
     return (
         <Link
             href={url}

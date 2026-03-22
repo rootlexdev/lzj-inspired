@@ -22,6 +22,11 @@ export const MenuLinks: NavLinkProps[] = [
         url: "https://affiliate.lzjesoleen.com",
         sameTab: false,
     },
+    {
+        hasDropdown: false,
+        text: "Pricing",
+        url: "/pricing",
+    },
 ];
 
 // {

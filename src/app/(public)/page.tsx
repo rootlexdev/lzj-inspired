@@ -2,12 +2,15 @@
 import HeroSection from "@/sections/hero-section";
 import PartnersScroll from "@/sections/partners-scroll";
 import ProblemsSection from "@/sections/problems-section";
-import SolutionsSection2 from "@/sections/solutions-section-2";
-import Testimonials from "@/sections/testimonials";
-import WhyChooseUs from "@/sections/why-choose-us";
+// import SolutionsSection2 from "@/sections/solutions-section-2";
+// import Testimonials from "@/sections/testimonials";
 // import Preloader from "@/sections/preloader";
 import { useEffect } from "react";
 import useLoaderStore from "@/lib/stores/loader";
+import SolutionsSection from "@/sections/solutions-section-3";
+import AffiliateSection from "@/sections/affiliate-section";
+import WhyChooseUs from "@/sections/why-choose-us-2";
+import TestimonialsSection from "@/sections/testimonials-section";
 
 export default function Home() {
     const { setLoaded } = useLoaderStore();
@@ -21,9 +24,11 @@ export default function Home() {
             <HeroSection />
             <PartnersScroll />
             <ProblemsSection />
-            <SolutionsSection2 />
+            <SolutionsSection />
             <WhyChooseUs />
-            <Testimonials />
+            <AffiliateSection />
+            {/* <Testimonials /> */}
+            <TestimonialsSection />
         </div>
     );
 }
