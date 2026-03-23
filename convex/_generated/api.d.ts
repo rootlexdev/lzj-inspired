@@ -42,6 +42,7 @@ import type * as lib_constants from "../lib/constants.js";
 import type * as lib_emailActions from "../lib/emailActions.js";
 import type * as lib_internalMuts from "../lib/internalMuts.js";
 import type * as lib_templates from "../lib/templates.js";
+import type * as public_careers from "../public/careers.js";
 import type * as public_client from "../public/client.js";
 import type * as public_contact from "../public/contact.js";
 import type * as public_newsletters from "../public/newsletters.js";
@@ -96,6 +97,7 @@ declare const fullApi: ApiFromModules<{
   "lib/emailActions": typeof lib_emailActions;
   "lib/internalMuts": typeof lib_internalMuts;
   "lib/templates": typeof lib_templates;
+  "public/careers": typeof public_careers;
   "public/client": typeof public_client;
   "public/contact": typeof public_contact;
   "public/newsletters": typeof public_newsletters;
