@@ -2,9 +2,7 @@
 import HeroSection from "@/sections/hero-section";
 import PartnersScroll from "@/sections/partners-scroll";
 import ProblemsSection from "@/sections/problems-section";
-// import SolutionsSection2 from "@/sections/solutions-section-2";
-// import Testimonials from "@/sections/testimonials";
-// import Preloader from "@/sections/preloader";
+import Preloader from "@/sections/preloader";
 import { useEffect } from "react";
 import useLoaderStore from "@/lib/stores/loader";
 import SolutionsSection from "@/sections/solutions-section-3";
@@ -20,14 +18,13 @@ export default function Home() {
     }, [setLoaded]);
     return (
         <div>
-            {/* <Preloader /> */}
+            <Preloader />
             <HeroSection />
             <PartnersScroll />
             <ProblemsSection />
             <SolutionsSection />
             <WhyChooseUs />
             <AffiliateSection />
-            {/* <Testimonials /> */}
             <TestimonialsSection />
         </div>
     );

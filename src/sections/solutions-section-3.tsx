@@ -21,7 +21,7 @@ const SOLUTIONS = [
             "Financial Reports",
             "Table Management",
         ],
-        href: "/solutions/rms",
+        href: "/rms",
         pricing: {
             startingAt: "₦75,000",
             period: "/month",
@@ -244,7 +244,7 @@ const SolutionsSection = () => {
                                                     Explore RMS
                                                 </Button>
                                             </Link>
-                                            <Link href="/solutions/rms#pricing">
+                                            <Link href="/rms#pricing">
                                                 <Button
                                                     variant="outline"
                                                     className="w-full sm:w-auto border-primary-gold text-primary-gold hover:bg-primary-gold/10"

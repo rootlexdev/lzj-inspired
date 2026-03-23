@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Link from "next/link";
+import { BoltIcon, HandshakeIcon, Target } from "lucide-react";
+import { BsCashStack } from "react-icons/bs";
 
 const AffiliateSection = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -105,12 +107,18 @@ const AffiliateSection = () => {
                                 </p>
 
                                 <div className="flex flex-col sm:flex-row gap-4">
-                                    <Link href="/affiliate">
+                                    <Link
+                                        href="https://affiliate.lzjesoleen.com"
+                                        target="_blank"
+                                    >
                                         <Button className="w-full sm:w-auto">
                                             Join Affiliate Program
                                         </Button>
                                     </Link>
-                                    <Link href="/affiliate#terms">
+                                    <Link
+                                        href="https://affiliate.lzjesoleen.com#terms"
+                                        target="_blank"
+                                    >
                                         <Button
                                             variant="outline"
                                             className="w-full sm:w-auto border-primary-gold/50 text-primary-gold hover:bg-primary-gold/10"
@@ -128,30 +136,30 @@ const AffiliateSection = () => {
                                         {
                                             value: "20%",
                                             label: "Commission Rate",
-                                            icon: "💰",
+                                            icon: BsCashStack,
                                         },
                                         {
                                             value: "3+",
                                             label: "Min. Conversions",
-                                            icon: "🎯",
+                                            icon: Target,
                                         },
                                         {
                                             value: "Fast",
                                             label: "Payouts",
-                                            icon: "⚡",
+                                            icon: BoltIcon,
                                         },
                                         {
                                             value: "Free",
                                             label: "To Join",
-                                            icon: "✨",
+                                            icon: HandshakeIcon,
                                         },
                                     ].map(stat => (
                                         <div
                                             key={stat.label}
                                             className="affiliate-stat bg-white/5 border border-white/10 rounded-xl p-5 text-center hover:border-primary-gold/30 transition-colors"
                                         >
-                                            <span className="text-2xl mb-2 block">
-                                                {stat.icon}
+                                            <span className="text-2xl mb-2 text-center text-primary-gold flex justify-center">
+                                                <stat.icon />
                                             </span>
                                             <p
                                                 className="text-2xl lg:text-3xl font-bold bg-clip-text text-transparent mb-1"

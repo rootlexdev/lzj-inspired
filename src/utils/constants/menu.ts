@@ -8,6 +8,11 @@ export const MenuLinks: NavLinkProps[] = [
     },
     {
         hasDropdown: false,
+        text: "About LZJ",
+        url: "/about",
+    },
+    {
+        hasDropdown: false,
         text: "Contact Sales",
         url: "/contact",
     },

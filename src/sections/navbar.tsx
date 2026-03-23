@@ -33,7 +33,7 @@ const Navbar = () => {
                 yPercent: 0,
                 opacity: 1,
                 stagger: 0.5,
-            }
+            },
         );
     }, [isLoaded]);
 
@@ -51,7 +51,7 @@ const Navbar = () => {
                         />
                     </Link>
 
-                    <div className="hidden lg:flex items-center gap-x-1">
+                    <div className="hidden lg:flex items-center gap-x-4">
                         {MenuLinks.map((link, i) => {
                             return (
                                 <Navlink

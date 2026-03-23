@@ -16,10 +16,10 @@ const Navlink = ({ active, text, url, hasDropdown, sameTab = true }: Props) => {
         <Link
             href={url}
             className={cn(
-                "font-satoshi font-normal px-2 py-4 text-body-text transition flex items-center gap-x-1",
+                "font-satoshi font-medium px-2 py-4 text-body-text transition flex items-center gap-x-1",
                 active
                     ? "bg-mint-green font-medium text-green"
-                    : "font-normal bg-transparent",
+                    : "font-medium bg-transparent",
             )}
             target={sameTab ? "_self" : "_blank"}
         >

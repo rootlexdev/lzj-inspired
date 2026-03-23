@@ -3,28 +3,30 @@ import SectionTitle from "./__components/section-title";
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { Lock, Rocket, Shield } from "lucide-react";
+import { FaGlobeAfrica } from "react-icons/fa";
 
 const VALUES = [
     {
-        icon: "🛡️",
+        icon: Shield,
         title: "Built for Reliability",
         description:
             "99.9% uptime guarantee. Your operations never stop because of us.",
     },
     {
-        icon: "🚀",
+        icon: Rocket,
         title: "Designed for Scale",
         description:
             "From 1 branch to 100 — our systems grow with your business.",
     },
     {
-        icon: "🇳🇬",
+        icon: FaGlobeAfrica,
         title: "Made for Africa",
         description:
             "Local support, Naira pricing, and features built for African markets.",
     },
     {
-        icon: "🔒",
+        icon: Lock,
         title: "Secure by Default",
         description:
             "Enterprise-grade security protects your data and your customers.",
@@ -124,22 +126,23 @@ const WhyChooseUs = () => {
                                 </h2>
 
                                 <div className="grid sm:grid-cols-2 gap-5 values-grid">
-                                    {VALUES.map(value => (
-                                        <div
-                                            key={value.title}
-                                            className="value-card bg-white/5 border border-white/10 rounded-xl p-5 hover:border-primary-gold/30 transition-colors"
-                                        >
-                                            <span className="text-2xl mb-3 block">
-                                                {value.icon}
-                                            </span>
-                                            <h4 className="font-semibold text-soft-white mb-2">
-                                                {value.title}
-                                            </h4>
-                                            <p className="text-body-text text-sm leading-relaxed">
-                                                {value.description}
-                                            </p>
-                                        </div>
-                                    ))}
+                                    {VALUES.map(value => {
+                                        const Icon = value.icon;
+                                        return (
+                                            <div
+                                                key={value.title}
+                                                className="value-card bg-white/5 border border-white/10 rounded-xl p-5 hover:border-primary-gold/30 transition-colors"
+                                            >
+                                                <Icon className="text-primary-gold mb-2.5" />
+                                                <h4 className="font-semibold text-soft-white mb-2">
+                                                    {value.title}
+                                                </h4>
+                                                <p className="text-body-text text-sm leading-relaxed">
+                                                    {value.description}
+                                                </p>
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                             </div>
 

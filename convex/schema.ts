@@ -268,4 +268,57 @@ export default defineSchema({
         email: v.string(),
         subscribedAt: v.number(),
     }),
+    jobApplications: defineTable({
+        // Personal Information
+        fullName: v.string(),
+        email: v.string(),
+        phone: v.string(),
+        location: v.string(),
+
+        // Professional Information
+        position: v.string(),
+        department: v.string(),
+        experienceLevel: v.string(),
+        currentRole: v.optional(v.string()),
+        linkedInUrl: v.optional(v.string()),
+        portfolioUrl: v.optional(v.string()),
+
+        // Application Details
+        coverLetter: v.string(),
+        resumeUrl: v.optional(v.string()), // If you support file uploads
+        heardFrom: v.string(),
+
+        // Availability
+        startDate: v.string(),
+        salaryExpectation: v.optional(v.string()),
+
+        // Status
+        status: v.string(), // "pending", "reviewing", "interviewed", "offered", "rejected", "hired"
+        notes: v.optional(v.string()),
+
+        // Metadata
+        submittedAt: v.number(),
+    })
+        .index("by_email", ["email"])
+        .index("by_status", ["status"])
+        .index("by_position", ["position"])
+        .index("by_department", ["department"]),
+
+    // Optional: Track open positions
+    jobPositions: defineTable({
+        title: v.string(),
+        department: v.string(),
+        location: v.string(),
+        type: v.string(), // "full-time", "part-time", "contract", "internship"
+        experienceLevel: v.string(), // "entry", "mid", "senior", "lead"
+        description: v.string(),
+        requirements: v.array(v.string()),
+        responsibilities: v.array(v.string()),
+        benefits: v.optional(v.array(v.string())),
+        salaryRange: v.optional(v.string()),
+        isActive: v.boolean(),
+        createdAt: v.number(),
+    })
+        .index("by_department", ["department"])
+        .index("by_active", ["isActive"]),
 });
