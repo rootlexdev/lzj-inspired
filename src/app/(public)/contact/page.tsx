@@ -75,7 +75,7 @@ const CONTACT_OPTIONS = [
         ),
         title: "Visit Us",
         description: "Come say hello at our office",
-        value: "Lagos, Nigeria",
+        value: "Warri, Nigeria",
         href: null,
         action: null,
     },
@@ -384,7 +384,7 @@ const ContactPage = () => {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div>
                             <h2 className="text-3xl font-bold text-[#F8F8F8] mb-4">
-                                Based in Lagos,{" "}
+                                Based in Warri,{" "}
                                 <span
                                     className="bg-clip-text text-transparent"
                                     style={{
@@ -396,7 +396,7 @@ const ContactPage = () => {
                                 </span>
                             </h2>
                             <p className="text-[#64748B] leading-relaxed mb-6">
-                                Our headquarters is in Lagos, Nigeria, but we
+                                Our headquarters is in Warri, Nigeria, but we
                                 serve businesses across the continent. No matter
                                 where you&apos;re located, we&apos;re here to
                                 help you transform your operations.
@@ -510,7 +510,7 @@ const ContactPage = () => {
                                             </span>
                                         </div>
                                         <p className="text-[#F8F8F8] font-semibold text-lg">
-                                            Lagos, Nigeria
+                                            Warri, Nigeria
                                         </p>
                                         <p className="text-[#64748B] text-sm">
                                             West Africa
