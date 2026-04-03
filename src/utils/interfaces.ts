@@ -28,3 +28,16 @@ export interface SelectOptionType {
     value: string;
     label: string;
 }
+
+export interface SurveyResponse {
+    [key: string]: string | string[];
+}
+
+export interface SurveyState {
+    currentSectionIndex: number;
+    responses: SurveyResponse;
+    setResponse: (questionId: string, value: string | string[]) => void;
+    nextSection: () => void;
+    previousSection: () => void;
+    resetSurvey: () => void;
+}

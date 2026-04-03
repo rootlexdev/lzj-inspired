@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Link from "next/link";
-import TeamMembersWithNames from "./team-members-with-names";
+// import TeamMembersWithNames from "./team-members-with-names";
 import TeamMembersOnly from "./team-members-only";
 // import Image from "next/image";
 
@@ -461,7 +461,7 @@ const AboutPage = () => {
                 </div>
             </section>
 
-            <TeamMembersWithNames />
+            {/* <TeamMembersWithNames /> */}
             <TeamMembersOnly />
             {/* ============================================================
                ALTERNATIVE: TEAM SECTION WITHOUT PERSONAL DETAILS
