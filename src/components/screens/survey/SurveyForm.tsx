@@ -7,6 +7,7 @@ import { questionnaire } from "@/lib/constants";
 import { ProgressBar } from "@/components/screens/survey/ProgressBar";
 import { QuestionRenderer } from "@/components/screens/survey/QuestionRenderer";
 import type { Section } from "@/lib/constants";
+import Image from "next/image";
 const Logo = "/assets/images/lzj_survey_logo.png";
 
 export function SurveyForm() {
@@ -311,9 +312,11 @@ export function SurveyForm() {
                             <h2 className="text-sm font-semibold tracking-wider uppercase text-yellow-100">
                                 LZJ ESOLEEN
                             </h2>
-                            <img
+                            <Image
                                 src={Logo}
                                 alt="lzj esoleen"
+                                width={50}
+                                height={50}
                                 className="w-[50px]"
                             />
                         </div>
